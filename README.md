@@ -73,7 +73,7 @@ Configurar o ambiente:
 
 ```bash
 source install/setup.bash
-```bash
+```
 
 ---
 
