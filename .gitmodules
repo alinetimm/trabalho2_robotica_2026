@@ -4,3 +4,7 @@
 [submodule "ros_ws/src/turtlebot3_simulations"]
 	path = ros_ws/src/turtlebot3_simulations
 	url = https://github.com/alinetimm/turtlebot3_simulations.git
+[submodule "ros_ws/src/turtlebot3"]
+	path = ros_ws/src/turtlebot3
+	url = https://github.com/alinetimm/turtlebot3.git
+	branch = humble
