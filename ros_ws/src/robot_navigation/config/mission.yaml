@@ -1,0 +1,49 @@
+navigator:
+  ros__parameters:
+    use_sim_time: true
+
+    pose0:
+      x: -2.0
+      y: 2.0
+      theta_deg: 0.0
+
+    home:
+      x: -2.0
+      y: 2.0
+      tol: 0.15
+
+    target_order: ['verde', 'vermelho', 'azul', 'laranja']
+
+    targets:
+      verde:
+        x: 2.20
+        y: 2.20
+        tol: 0.35
+      vermelho:
+        x: 2.15
+        y: -2.15
+        tol: 0.35
+      azul:
+        x: -2.16
+        y: -2.16
+        tol: 0.35
+      laranja:
+        x: -2.00
+        y: 1.20
+        tol: 0.35
+
+    bug2:
+      d_obs: 0.35
+      wall_dist: 0.40
+      mline_tol: 0.30
+      lin: 0.18
+      ang: 0.9
+
+    approach:
+      window_dist: 0.6
+      max_speed: 0.08
+      safety_fm: 0.18
+
+    wait_time: 2.0
+
+    log_csv: true
