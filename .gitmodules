@@ -1,0 +1,6 @@
+[submodule "ros_ws/src/turtlebot3_msgs"]
+	path = ros_ws/src/turtlebot3_msgs
+	url = https://github.com/alinetimm/turtlebot3_msgs.git
+[submodule "ros_ws/src/turtlebot3_simulations"]
+	path = ros_ws/src/turtlebot3_simulations
+	url = https://github.com/alinetimm/turtlebot3_simulations.git
