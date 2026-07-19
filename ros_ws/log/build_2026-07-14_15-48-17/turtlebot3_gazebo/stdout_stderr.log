@@ -1,0 +1,6 @@
+[  8%] Building CXX object CMakeFiles/traffic_light_plugin.dir/src/traffic_light_plugin.cpp.o
+[ 16%] Building CXX object CMakeFiles/obstacles.dir/src/obstacles.cpp.o
+[ 25%] Building CXX object CMakeFiles/obstacle2.dir/src/obstacle2.cpp.o
+[ 41%] Building CXX object CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o
+[ 41%] Building CXX object CMakeFiles/traffic_bar_plugin.dir/src/traffic_bar_plugin.cpp.o
+[ 50%] Building CXX object CMakeFiles/obstacle1.dir/src/obstacle1.cpp.o

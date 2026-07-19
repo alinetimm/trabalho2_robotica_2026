@@ -1,1 +1,1 @@
-prepend-non-duplicate;PYTHONPATH;local/lib/python3.10/dist-packages
+/ros_ws/build/turtlebot3_msgs/ament_cmake_environment_hooks/pythonpath.dsv

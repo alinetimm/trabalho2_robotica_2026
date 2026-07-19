@@ -1,0 +1,26 @@
+running develop
+running egg_info
+creating robot_navigation.egg-info
+writing robot_navigation.egg-info/PKG-INFO
+writing dependency_links to robot_navigation.egg-info/dependency_links.txt
+writing entry points to robot_navigation.egg-info/entry_points.txt
+writing requirements to robot_navigation.egg-info/requires.txt
+writing top-level names to robot_navigation.egg-info/top_level.txt
+writing manifest file 'robot_navigation.egg-info/SOURCES.txt'
+reading manifest file 'robot_navigation.egg-info/SOURCES.txt'
+writing manifest file 'robot_navigation.egg-info/SOURCES.txt'
+running build_ext
+Creating /ros_ws/install/robot_navigation/lib/python3.10/site-packages/robot-navigation.egg-link (link to .)
+Installing navigator script to /ros_ws/install/robot_navigation/lib/robot_navigation
+
+Installed /ros_ws/build/robot_navigation
+running symlink_data
+creating /ros_ws/install/robot_navigation/share/ament_index
+creating /ros_ws/install/robot_navigation/share/ament_index/resource_index
+creating /ros_ws/install/robot_navigation/share/ament_index/resource_index/packages
+symbolically linking /ros_ws/build/robot_navigation/resource/robot_navigation -> /ros_ws/install/robot_navigation/share/ament_index/resource_index/packages
+symbolically linking /ros_ws/build/robot_navigation/package.xml -> /ros_ws/install/robot_navigation/share/robot_navigation
+creating /ros_ws/install/robot_navigation/share/robot_navigation/launch
+symbolically linking /ros_ws/build/robot_navigation/launch/mission.launch.py -> /ros_ws/install/robot_navigation/share/robot_navigation/launch
+creating /ros_ws/install/robot_navigation/share/robot_navigation/config
+symbolically linking /ros_ws/build/robot_navigation/config/mission.yaml -> /ros_ws/install/robot_navigation/share/robot_navigation/config

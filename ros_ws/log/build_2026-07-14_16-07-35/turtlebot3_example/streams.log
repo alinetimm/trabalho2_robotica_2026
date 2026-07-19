@@ -1,0 +1,22 @@
+[2.148s] Invoking command in '/ros_ws/build/turtlebot3_example': AMENT_PREFIX_PATH=/ros_ws/install/turtlebot3_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/ros_ws/install/turtlebot3_msgs LD_LIBRARY_PATH=/ros_ws/install/turtlebot3_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/ros_ws/build/turtlebot3_example/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/ros_ws/install/turtlebot3_example/lib/python3.10/site-packages:/ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /ros_ws/build/turtlebot3_example/build --no-deps symlink_data
+[2.769s] running develop
+[2.960s] running egg_info
+[2.960s] writing turtlebot3_example.egg-info/PKG-INFO
+[2.961s] writing dependency_links to turtlebot3_example.egg-info/dependency_links.txt
+[2.961s] writing entry points to turtlebot3_example.egg-info/entry_points.txt
+[2.962s] writing requirements to turtlebot3_example.egg-info/requires.txt
+[2.962s] writing top-level names to turtlebot3_example.egg-info/top_level.txt
+[2.966s] reading manifest file 'turtlebot3_example.egg-info/SOURCES.txt'
+[2.968s] writing manifest file 'turtlebot3_example.egg-info/SOURCES.txt'
+[2.971s] running build_ext
+[2.971s] Creating /ros_ws/install/turtlebot3_example/lib/python3.10/site-packages/turtlebot3-example.egg-link (link to .)
+[2.972s] Installing turtlebot3_absolute_move script to /ros_ws/install/turtlebot3_example/lib/turtlebot3_example
+[2.972s] Installing turtlebot3_interactive_marker script to /ros_ws/install/turtlebot3_example/lib/turtlebot3_example
+[2.973s] Installing turtlebot3_obstacle_detection script to /ros_ws/install/turtlebot3_example/lib/turtlebot3_example
+[2.973s] Installing turtlebot3_patrol_client script to /ros_ws/install/turtlebot3_example/lib/turtlebot3_example
+[2.974s] Installing turtlebot3_patrol_server script to /ros_ws/install/turtlebot3_example/lib/turtlebot3_example
+[2.974s] Installing turtlebot3_relative_move script to /ros_ws/install/turtlebot3_example/lib/turtlebot3_example
+[2.975s] 
+[2.976s] Installed /ros_ws/build/turtlebot3_example
+[2.976s] running symlink_data
+[3.118s] Invoked command in '/ros_ws/build/turtlebot3_example' returned '0': AMENT_PREFIX_PATH=/ros_ws/install/turtlebot3_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/ros_ws/install/turtlebot3_msgs LD_LIBRARY_PATH=/ros_ws/install/turtlebot3_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/ros_ws/build/turtlebot3_example/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/ros_ws/install/turtlebot3_example/lib/python3.10/site-packages:/ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /ros_ws/build/turtlebot3_example/build --no-deps symlink_data

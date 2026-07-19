@@ -1,0 +1,758 @@
+[0.000000] (-) TimerEvent: {}
+[0.000080] (robot_navigation) JobQueued: {'identifier': 'robot_navigation', 'dependencies': OrderedDict()}
+[0.000185] (turtlebot3_cartographer) JobQueued: {'identifier': 'turtlebot3_cartographer', 'dependencies': OrderedDict()}
+[0.000423] (turtlebot3_description) JobQueued: {'identifier': 'turtlebot3_description', 'dependencies': OrderedDict()}
+[0.000435] (turtlebot3_gazebo) JobQueued: {'identifier': 'turtlebot3_gazebo', 'dependencies': OrderedDict()}
+[0.000447] (turtlebot3_manipulation_gazebo) JobQueued: {'identifier': 'turtlebot3_manipulation_gazebo', 'dependencies': OrderedDict()}
+[0.000459] (turtlebot3_msgs) JobQueued: {'identifier': 'turtlebot3_msgs', 'dependencies': OrderedDict()}
+[0.000469] (turtlebot3_navigation2) JobQueued: {'identifier': 'turtlebot3_navigation2', 'dependencies': OrderedDict()}
+[0.000480] (turtlebot3_teleop) JobQueued: {'identifier': 'turtlebot3_teleop', 'dependencies': OrderedDict()}
+[0.000490] (turtlebot3_example) JobQueued: {'identifier': 'turtlebot3_example', 'dependencies': OrderedDict([('turtlebot3_msgs', '/ros_ws/install/turtlebot3_msgs')])}
+[0.000503] (turtlebot3_fake_node) JobQueued: {'identifier': 'turtlebot3_fake_node', 'dependencies': OrderedDict([('turtlebot3_msgs', '/ros_ws/install/turtlebot3_msgs')])}
+[0.000515] (turtlebot3_node) JobQueued: {'identifier': 'turtlebot3_node', 'dependencies': OrderedDict([('turtlebot3_msgs', '/ros_ws/install/turtlebot3_msgs')])}
+[0.000526] (turtlebot3_bringup) JobQueued: {'identifier': 'turtlebot3_bringup', 'dependencies': OrderedDict([('turtlebot3_description', '/ros_ws/install/turtlebot3_description'), ('turtlebot3_msgs', '/ros_ws/install/turtlebot3_msgs'), ('turtlebot3_node', '/ros_ws/install/turtlebot3_node')])}
+[0.000539] (turtlebot3_simulations) JobQueued: {'identifier': 'turtlebot3_simulations', 'dependencies': OrderedDict([('turtlebot3_gazebo', '/ros_ws/install/turtlebot3_gazebo'), ('turtlebot3_manipulation_gazebo', '/ros_ws/install/turtlebot3_manipulation_gazebo'), ('turtlebot3_msgs', '/ros_ws/install/turtlebot3_msgs'), ('turtlebot3_fake_node', '/ros_ws/install/turtlebot3_fake_node')])}
+[0.000553] (turtlebot3) JobQueued: {'identifier': 'turtlebot3', 'dependencies': OrderedDict([('turtlebot3_cartographer', '/ros_ws/install/turtlebot3_cartographer'), ('turtlebot3_description', '/ros_ws/install/turtlebot3_description'), ('turtlebot3_msgs', '/ros_ws/install/turtlebot3_msgs'), ('turtlebot3_navigation2', '/ros_ws/install/turtlebot3_navigation2'), ('turtlebot3_teleop', '/ros_ws/install/turtlebot3_teleop'), ('turtlebot3_example', '/ros_ws/install/turtlebot3_example'), ('turtlebot3_node', '/ros_ws/install/turtlebot3_node'), ('turtlebot3_bringup', '/ros_ws/install/turtlebot3_bringup')])}
+[0.000569] (turtlebot3_msgs) JobStarted: {'identifier': 'turtlebot3_msgs'}
+[0.011602] (turtlebot3_description) JobStarted: {'identifier': 'turtlebot3_description'}
+[0.013936] (turtlebot3_cartographer) JobStarted: {'identifier': 'turtlebot3_cartographer'}
+[0.016514] (turtlebot3_gazebo) JobStarted: {'identifier': 'turtlebot3_gazebo'}
+[0.019367] (turtlebot3_manipulation_gazebo) JobStarted: {'identifier': 'turtlebot3_manipulation_gazebo'}
+[0.022699] (turtlebot3_navigation2) JobStarted: {'identifier': 'turtlebot3_navigation2'}
+[0.025824] (turtlebot3_teleop) JobStarted: {'identifier': 'turtlebot3_teleop'}
+[0.032016] (robot_navigation) JobStarted: {'identifier': 'robot_navigation'}
+[0.037119] (turtlebot3_msgs) JobProgress: {'identifier': 'turtlebot3_msgs', 'progress': 'cmake'}
+[0.038314] (turtlebot3_msgs) JobProgress: {'identifier': 'turtlebot3_msgs', 'progress': 'build'}
+[0.038823] (turtlebot3_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/build/turtlebot3_msgs', '--', '-j8', '-l8'], 'cwd': '/ros_ws/build/turtlebot3_msgs', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_msgs'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.040198] (turtlebot3_description) JobProgress: {'identifier': 'turtlebot3_description', 'progress': 'cmake'}
+[0.040961] (turtlebot3_description) JobProgress: {'identifier': 'turtlebot3_description', 'progress': 'build'}
+[0.041126] (turtlebot3_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/build/turtlebot3_description', '--', '-j8', '-l8'], 'cwd': '/ros_ws/build/turtlebot3_description', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_description'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.041914] (turtlebot3_cartographer) JobProgress: {'identifier': 'turtlebot3_cartographer', 'progress': 'cmake'}
+[0.042477] (turtlebot3_cartographer) JobProgress: {'identifier': 'turtlebot3_cartographer', 'progress': 'build'}
+[0.042645] (turtlebot3_cartographer) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/build/turtlebot3_cartographer', '--', '-j8', '-l8'], 'cwd': '/ros_ws/build/turtlebot3_cartographer', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_cartographer'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.043413] (turtlebot3_gazebo) JobProgress: {'identifier': 'turtlebot3_gazebo', 'progress': 'cmake'}
+[0.044699] (turtlebot3_gazebo) JobProgress: {'identifier': 'turtlebot3_gazebo', 'progress': 'build'}
+[0.044972] (turtlebot3_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/build/turtlebot3_gazebo', '--', '-j8', '-l8'], 'cwd': '/ros_ws/build/turtlebot3_gazebo', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_gazebo'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.045815] (turtlebot3_manipulation_gazebo) JobProgress: {'identifier': 'turtlebot3_manipulation_gazebo', 'progress': 'cmake'}
+[0.046882] (turtlebot3_manipulation_gazebo) JobProgress: {'identifier': 'turtlebot3_manipulation_gazebo', 'progress': 'build'}
+[0.047048] (turtlebot3_manipulation_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/build/turtlebot3_manipulation_gazebo', '--', '-j8', '-l8'], 'cwd': '/ros_ws/build/turtlebot3_manipulation_gazebo', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_manipulation_gazebo'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.047889] (turtlebot3_navigation2) JobProgress: {'identifier': 'turtlebot3_navigation2', 'progress': 'cmake'}
+[0.048999] (turtlebot3_navigation2) JobProgress: {'identifier': 'turtlebot3_navigation2', 'progress': 'build'}
+[0.049163] (turtlebot3_navigation2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/build/turtlebot3_navigation2', '--', '-j8', '-l8'], 'cwd': '/ros_ws/build/turtlebot3_navigation2', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_navigation2'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099811] (-) TimerEvent: {}
+[0.200481] (-) TimerEvent: {}
+[0.300753] (-) TimerEvent: {}
+[0.401018] (-) TimerEvent: {}
+[0.501264] (-) TimerEvent: {}
+[0.601498] (-) TimerEvent: {}
+[0.628948] (turtlebot3_msgs) StdoutLine: {'line': b'[  1%] Built target turtlebot3_msgs__cpp\n'}
+[0.629378] (turtlebot3_msgs) StdoutLine: {'line': b'[  2%] Built target turtlebot3_msgs__rs\n'}
+[0.629427] (turtlebot3_msgs) StdoutLine: {'line': b'[  2%] Built target ament_cmake_python_symlink_turtlebot3_msgs\n'}
+[0.629494] (turtlebot3_msgs) StdoutLine: {'line': b'[ 13%] Built target turtlebot3_msgs__rosidl_generator_c\n'}
+[0.629553] (turtlebot3_msgs) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target turtlebot3_msgs__rosidl_typesupport_cpp\n'}
+[0.629619] (turtlebot3_msgs) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target turtlebot3_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[0.629682] (turtlebot3_msgs) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target turtlebot3_msgs__rosidl_typesupport_introspection_cpp\n'}
+[0.629742] (turtlebot3_msgs) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target turtlebot3_msgs__rosidl_typesupport_introspection_c\n'}
+[0.629802] (turtlebot3_msgs) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target turtlebot3_msgs__rosidl_typesupport_fastrtps_c\n'}
+[0.629850] (turtlebot3_msgs) StdoutLine: {'line': b'[ 32%] Built target turtlebot3_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[0.629943] (turtlebot3_msgs) StdoutLine: {'line': b'[ 36%] Built target turtlebot3_msgs__rosidl_typesupport_introspection_cpp\n'}
+[0.630008] (turtlebot3_msgs) StdoutLine: {'line': b'[ 48%] Built target turtlebot3_msgs__rosidl_typesupport_c\n'}
+[0.630071] (turtlebot3_msgs) StdoutLine: {'line': b'[ 58%] Built target turtlebot3_msgs__rosidl_typesupport_cpp\n'}
+[0.630153] (turtlebot3_msgs) StdoutLine: {'line': b'[ 70%] Built target turtlebot3_msgs__rosidl_typesupport_introspection_c\n'}
+[0.630515] (turtlebot3_msgs) StdoutLine: {'line': b'[ 81%] Built target turtlebot3_msgs__rosidl_typesupport_fastrtps_c\n'}
+[0.630578] (turtlebot3_msgs) StdoutLine: {'line': b'[ 81%] Built target turtlebot3_msgs\n'}
+[0.630639] (turtlebot3_msgs) StdoutLine: {'line': b'[ 82%] Built target turtlebot3_msgs__py\n'}
+[0.630681] (turtlebot3_msgs) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target turtlebot3_msgs__rosidl_generator_py\n'}
+[0.630716] (turtlebot3_msgs) StdoutLine: {'line': b'[ 92%] Built target turtlebot3_msgs__rosidl_generator_py\n'}
+[0.630751] (turtlebot3_msgs) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target turtlebot3_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[0.630786] (turtlebot3_msgs) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target turtlebot3_msgs__rosidl_typesupport_c__pyext\n'}
+[0.630824] (turtlebot3_msgs) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target turtlebot3_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.630861] (turtlebot3_msgs) StdoutLine: {'line': b'[ 95%] Built target turtlebot3_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[0.630899] (turtlebot3_msgs) StdoutLine: {'line': b'[ 97%] Built target turtlebot3_msgs__rosidl_typesupport_c__pyext\n'}
+[0.630936] (turtlebot3_msgs) StdoutLine: {'line': b'[100%] Built target turtlebot3_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.630973] (turtlebot3_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[0.631011] (turtlebot3_msgs) StdoutLine: {'line': b'writing turtlebot3_msgs.egg-info/PKG-INFO\n'}
+[0.631055] (turtlebot3_msgs) StdoutLine: {'line': b'writing dependency_links to turtlebot3_msgs.egg-info/dependency_links.txt\n'}
+[0.631093] (turtlebot3_msgs) StdoutLine: {'line': b'writing top-level names to turtlebot3_msgs.egg-info/top_level.txt\n'}
+[0.631131] (turtlebot3_msgs) StdoutLine: {'line': b"reading manifest file 'turtlebot3_msgs.egg-info/SOURCES.txt'\n"}
+[0.631169] (turtlebot3_msgs) StdoutLine: {'line': b"writing manifest file 'turtlebot3_msgs.egg-info/SOURCES.txt'\n"}
+[0.631296] (turtlebot3_msgs) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_turtlebot3_msgs_egg\n'}
+[0.631336] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 25%] Building CXX object CMakeFiles/obstacle1.dir/src/obstacle1.cpp.o\n'}
+[0.631403] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 25%] Building CXX object CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o\n'}
+[0.631441] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 25%] Building CXX object CMakeFiles/traffic_light_plugin.dir/src/traffic_light_plugin.cpp.o\n'}
+[0.631483] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 33%] Building CXX object CMakeFiles/obstacles.dir/src/obstacles.cpp.o\n'}
+[0.631520] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 41%] Building CXX object CMakeFiles/traffic_bar_plugin.dir/src/traffic_bar_plugin.cpp.o\n'}
+[0.631560] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/obstacle2.dir/src/obstacle2.cpp.o\n'}
+[0.631621] (turtlebot3_msgs) CommandEnded: {'returncode': 0}
+[0.632255] (turtlebot3_msgs) JobProgress: {'identifier': 'turtlebot3_msgs', 'progress': 'install'}
+[0.640059] (turtlebot3_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/ros_ws/build/turtlebot3_msgs'], 'cwd': '/ros_ws/build/turtlebot3_msgs', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_msgs'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.641116] (turtlebot3_description) CommandEnded: {'returncode': 0}
+[0.643446] (turtlebot3_description) JobProgress: {'identifier': 'turtlebot3_description', 'progress': 'install'}
+[0.643495] (turtlebot3_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/ros_ws/build/turtlebot3_description'], 'cwd': '/ros_ws/build/turtlebot3_description', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_description'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.644858] (turtlebot3_cartographer) CommandEnded: {'returncode': 0}
+[0.646892] (turtlebot3_cartographer) JobProgress: {'identifier': 'turtlebot3_cartographer', 'progress': 'install'}
+[0.647161] (turtlebot3_cartographer) Command: {'cmd': ['/usr/bin/cmake', '--install', '/ros_ws/build/turtlebot3_cartographer'], 'cwd': '/ros_ws/build/turtlebot3_cartographer', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_cartographer'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.648605] (turtlebot3_manipulation_gazebo) CommandEnded: {'returncode': 0}
+[0.650886] (turtlebot3_manipulation_gazebo) JobProgress: {'identifier': 'turtlebot3_manipulation_gazebo', 'progress': 'install'}
+[0.651101] (turtlebot3_manipulation_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--install', '/ros_ws/build/turtlebot3_manipulation_gazebo'], 'cwd': '/ros_ws/build/turtlebot3_manipulation_gazebo', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_manipulation_gazebo'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.651808] (turtlebot3_navigation2) CommandEnded: {'returncode': 0}
+[0.653272] (turtlebot3_navigation2) JobProgress: {'identifier': 'turtlebot3_navigation2', 'progress': 'install'}
+[0.653322] (turtlebot3_navigation2) Command: {'cmd': ['/usr/bin/cmake', '--install', '/ros_ws/build/turtlebot3_navigation2'], 'cwd': '/ros_ws/build/turtlebot3_navigation2', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_navigation2'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.662306] (turtlebot3_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.662614] (turtlebot3_msgs) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.662719] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/ament_index/resource_index/rosidl_interfaces/turtlebot3_msgs\n'}
+[0.662967] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/detail/patrol__functions.h\n'}
+[0.663048] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/detail/patrol__struct.h\n'}
+[0.663135] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/detail/patrol__type_support.h\n'}
+[0.663390] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/patrol.h\n'}
+[0.663530] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sensor_state__functions.h\n'}
+[0.663574] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sensor_state__struct.h\n'}
+[0.663615] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sensor_state__type_support.h\n'}
+[0.664340] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sound__functions.h\n'}
+[0.664443] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sound__struct.h\n'}
+[0.664517] (turtlebot3_description) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.664604] (turtlebot3_description) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.664667] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/meshes/bases/burger_base.stl\n'}
+[0.664728] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/meshes/bases/waffle_base.stl\n'}
+[0.664793] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/meshes/bases/waffle_pi_base.stl\n'}
+[0.664854] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/meshes/sensors/astra.dae\n'}
+[0.664915] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/meshes/sensors/astra.jpg\n'}
+[0.664977] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/meshes/sensors/lds.stl\n'}
+[0.665039] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/meshes/sensors/r200.dae\n'}
+[0.665101] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/meshes/sensors/r200.jpg\n'}
+[0.665165] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/meshes/wheels/left_tire.stl\n'}
+[0.665241] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/meshes/wheels/right_tire.stl\n'}
+[0.665308] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/rviz/model.rviz\n'}
+[0.665371] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.665457] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.665521] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/config/turtlebot3_lds_2d.lua\n'}
+[0.665585] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/launch/cartographer.launch.py\n'}
+[0.665649] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/launch/occupancy_grid.launch.py\n'}
+[0.665714] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/rviz/tb3_cartographer.rviz\n'}
+[0.665791] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/ament_index/resource_index/package_run_dependencies/turtlebot3_cartographer\n'}
+[0.665865] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/ament_index/resource_index/parent_prefix_path/turtlebot3_cartographer\n'}
+[0.665935] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.666051] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.666404] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sound__type_support.h\n'}
+[0.666557] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/urdf/common_properties.urdf\n'}
+[0.666619] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/environment/ament_prefix_path.sh\n'}
+[0.666666] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/environment/ament_prefix_path.dsv\n'}
+[0.666703] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/urdf/turtlebot3_burger.urdf\n'}
+[0.666741] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/config/gazebo_controller_manager.yaml\n'}
+[0.666783] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/version_info__functions.h\n'}
+[0.666821] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.667298] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/config/hardware_controller_manager.yaml\n'}
+[0.667675] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/environment/path.sh\n'}
+[0.667722] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/urdf/turtlebot3_waffle.urdf\n'}
+[0.667765] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/version_info__struct.h\n'}
+[0.667805] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/urdf/turtlebot3_waffle_pi.urdf\n'}
+[0.667996] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/version_info__type_support.h\n'}
+[0.668115] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/environment/path.dsv\n'}
+[0.668555] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.668850] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/gazebo/materials.xacro\n'}
+[0.668906] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/ament_index/resource_index/package_run_dependencies/turtlebot3_description\n'}
+[0.668950] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/local_setup.bash\n'}
+[0.669502] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/gazebo/open_manipulator_x.gazebo.xacro\n'}
+[0.669594] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/ament_index/resource_index/parent_prefix_path/turtlebot3_description\n'}
+[0.669666] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/local_setup.sh\n'}
+[0.669740] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[0.669801] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/gazebo/turtlebot3_waffle_pi.gazebo.xacro\n'}
+[0.669864] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/launch/navigation2.launch.py\n'}
+[0.669939] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/local_setup.zsh\n'}
+[0.670001] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/environment/ament_prefix_path.sh\n'}
+[0.670229] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/sensor_state.h\n'}
+[0.670340] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/map/map.pgm\n'}
+[0.671163] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/map/map.yaml\n'}
+[0.671254] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/sound.h\n'}
+[0.671325] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/launch/base.launch.py\n'}
+[0.671405] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/environment/ament_prefix_path.dsv\n'}
+[0.671478] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/version_info.h\n'}
+[0.671544] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/local_setup.dsv\n'}
+[0.671611] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/environment/path.sh\n'}
+[0.671669] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/launch/fake.launch.py\n'}
+[0.672234] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Symlinking: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/package.dsv\n'}
+[0.672741] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/environment/path.dsv\n'}
+[0.672829] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/local_setup.bash\n'}
+[0.673064] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/param/burger.yaml\n'}
+[0.673624] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/dqn__functions.h\n'}
+[0.675545] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/param/burger_cam.yaml\n'}
+[0.675663] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/launch/gazebo.launch.py\n'}
+[0.675735] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/local_setup.sh\n'}
+[0.675813] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/param/humble/burger.yaml\n'}
+[0.675880] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/dqn__struct.h\n'}
+[0.675952] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/launch/turtlebot3_home_service_challenge.launch.py\n'}
+[0.676021] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/local_setup.zsh\n'}
+[0.676088] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/dqn__type_support.h\n'}
+[0.676160] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/param/humble/burger_cam.yaml\n'}
+[0.676251] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/goal__functions.h\n'}
+[0.676330] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/param/humble/waffle.yaml\n'}
+[0.676415] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/local_setup.dsv\n'}
+[0.676496] (turtlebot3_description) StdoutLine: {'line': b'-- Symlinking: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/package.dsv\n'}
+[0.676572] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/ros2_control/turtlebot3_manipulation_system.ros2_control.xacro\n'}
+[0.676656] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/goal__struct.h\n'}
+[0.676725] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/goal__type_support.h\n'}
+[0.676789] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/rviz/turtlebot3_manipulation.rviz\n'}
+[0.676851] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/sound__functions.h\n'}
+[0.678436] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/sound__struct.h\n'}
+[0.680339] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/sound__type_support.h\n'}
+[0.680474] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/param/humble/waffle_pi.yaml\n'}
+[0.682017] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/dqn.h\n'}
+[0.682596] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/goal.h\n'}
+[0.682693] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/param/waffle.yaml\n'}
+[0.682771] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/param/waffle_pi.yaml\n'}
+[0.682847] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/urdf/open_manipulator_x.urdf.xacro\n'}
+[0.682928] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/sound.h\n'}
+[0.682994] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/urdf/turtlebot3_manipulation.urdf.xacro\n'}
+[0.683056] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/environment/library_path.sh\n'}
+[0.683118] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/urdf/turtlebot3_waffle_pi.urdf.xacro\n'}
+[0.683203] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/rviz/tb3_navigation2.rviz\n'}
+[0.683279] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/environment/library_path.dsv\n'}
+[0.683759] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/worlds/turtlebot3_home_service_challenge.world\n'}
+[0.683836] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/ament_index/resource_index/package_run_dependencies/turtlebot3_navigation2\n'}
+[0.683904] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/ament_index/resource_index/parent_prefix_path/turtlebot3_navigation2\n'}
+[0.683961] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/environment/ament_prefix_path.sh\n'}
+[0.684007] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/environment/ament_prefix_path.dsv\n'}
+[0.684049] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/ament_index/resource_index/packages/turtlebot3_cartographer\n'}
+[0.684596] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/environment/path.sh\n'}
+[0.684947] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/cmake/turtlebot3_cartographerConfig.cmake\n'}
+[0.685031] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/environment/path.dsv\n'}
+[0.685096] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/cmake/turtlebot3_cartographerConfig-version.cmake\n'}
+[0.685161] (turtlebot3_cartographer) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_cartographer/share/turtlebot3_cartographer/package.xml\n'}
+[0.685350] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/detail/patrol__rosidl_typesupport_fastrtps_c.h\n'}
+[0.685472] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/local_setup.bash\n'}
+[0.685674] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/local_setup.sh\n'}
+[0.685751] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sensor_state__rosidl_typesupport_fastrtps_c.h\n'}
+[0.686204] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/ament_index/resource_index/packages/turtlebot3_description\n'}
+[0.686596] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/local_setup.zsh\n'}
+[0.686679] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sound__rosidl_typesupport_fastrtps_c.h\n'}
+[0.687540] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/local_setup.dsv\n'}
+[0.687771] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Symlinking: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/package.dsv\n'}
+[0.688210] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/version_info__rosidl_typesupport_fastrtps_c.h\n'}
+[0.688455] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/cmake/turtlebot3_descriptionConfig.cmake\n'}
+[0.689554] (turtlebot3_cartographer) CommandEnded: {'returncode': 0}
+[0.702297] (-) TimerEvent: {}
+[0.737541] (turtlebot3_cartographer) JobEnded: {'identifier': 'turtlebot3_cartographer', 'rc': 0}
+[0.739496] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/cmake/turtlebot3_descriptionConfig-version.cmake\n'}
+[0.739740] (turtlebot3_description) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_description/share/turtlebot3_description/package.xml\n'}
+[0.739910] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[0.740085] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/dqn__rosidl_typesupport_fastrtps_c.h\n'}
+[0.740205] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/goal__rosidl_typesupport_fastrtps_c.h\n'}
+[0.740280] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/sound__rosidl_typesupport_fastrtps_c.h\n'}
+[0.740344] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/detail/patrol__builder.hpp\n'}
+[0.740409] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/detail/patrol__struct.hpp\n'}
+[0.740471] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/detail/patrol__traits.hpp\n'}
+[0.740534] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/detail/patrol__type_support.hpp\n'}
+[0.742224] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/patrol.hpp\n'}
+[0.742353] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sensor_state__builder.hpp\n'}
+[0.742412] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sensor_state__struct.hpp\n'}
+[0.742481] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sensor_state__traits.hpp\n'}
+[0.742548] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sensor_state__type_support.hpp\n'}
+[0.742612] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sound__builder.hpp\n'}
+[0.742670] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sound__struct.hpp\n'}
+[0.742726] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sound__traits.hpp\n'}
+[0.742780] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sound__type_support.hpp\n'}
+[0.742837] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/version_info__builder.hpp\n'}
+[0.742896] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/version_info__struct.hpp\n'}
+[0.742952] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/version_info__traits.hpp\n'}
+[0.743009] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/version_info__type_support.hpp\n'}
+[0.743068] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[0.743128] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/sensor_state.hpp\n'}
+[0.743206] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/sound.hpp\n'}
+[0.743271] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/version_info.hpp\n'}
+[0.743329] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/dqn__builder.hpp\n'}
+[0.743384] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/dqn__struct.hpp\n'}
+[0.743439] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/dqn__traits.hpp\n'}
+[0.743493] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/dqn__type_support.hpp\n'}
+[0.743547] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/goal__builder.hpp\n'}
+[0.743600] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/goal__struct.hpp\n'}
+[0.743652] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/goal__traits.hpp\n'}
+[0.743717] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/goal__type_support.hpp\n'}
+[0.743773] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/sound__builder.hpp\n'}
+[0.743829] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/sound__struct.hpp\n'}
+[0.743881] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/sound__traits.hpp\n'}
+[0.743938] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/sound__type_support.hpp\n'}
+[0.743994] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/dqn.hpp\n'}
+[0.744048] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/goal.hpp\n'}
+[0.744103] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/sound.hpp\n'}
+[0.744160] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/detail/patrol__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.744234] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sensor_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.744292] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sound__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.744365] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/version_info__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.744428] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[0.744492] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/dqn__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.744556] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/goal__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.744620] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/sound__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.744683] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/detail/patrol__rosidl_typesupport_introspection_c.h\n'}
+[0.744746] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sensor_state__rosidl_typesupport_introspection_c.h\n'}
+[0.744808] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sound__rosidl_typesupport_introspection_c.h\n'}
+[0.744878] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/version_info__rosidl_typesupport_introspection_c.h\n'}
+[0.744944] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[0.745013] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/dqn__rosidl_typesupport_introspection_c.h\n'}
+[0.745078] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/goal__rosidl_typesupport_introspection_c.h\n'}
+[0.745149] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/sound__rosidl_typesupport_introspection_c.h\n'}
+[0.745929] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/action/detail/patrol__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.746015] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sensor_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.746148] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/sound__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.746545] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker0/materials/textures/Marker0.png\n'}
+[0.746855] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker0/meshes/Marker0.dae\n'}
+[0.746926] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker0/model-1_4.sdf\n'}
+[0.747065] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker0/model-1_5.sdf\n'}
+[0.747150] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker0/model.config\n'}
+[0.747361] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker0/model.sdf\n'}
+[0.747525] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker1/materials/textures/Marker1.png\n'}
+[0.747605] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker1/meshes/Marker1.dae\n'}
+[0.747728] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker1/model-1_4.sdf\n'}
+[0.747861] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker1/model-1_5.sdf\n'}
+[0.747927] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker1/model.config\n'}
+[0.748049] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker1/model.sdf\n'}
+[0.748107] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker2/materials/textures/Marker2.png\n'}
+[0.748258] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker2/meshes/Marker2.dae\n'}
+[0.748327] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker2/model-1_4.sdf\n'}
+[0.748385] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker2/model-1_5.sdf\n'}
+[0.748449] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker2/model.config\n'}
+[0.748514] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker2/model.sdf\n'}
+[0.748580] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker3/materials/textures/Marker3.png\n'}
+[0.748656] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker3/meshes/Marker3.dae\n'}
+[0.748730] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker3/model-1_4.sdf\n'}
+[0.748806] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker3/model-1_5.sdf\n'}
+[0.748879] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker3/model.config\n'}
+[0.748949] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker3/model.sdf\n'}
+[0.749022] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker4/materials/textures/Marker4.png\n'}
+[0.749387] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker4/meshes/Marker4.dae\n'}
+[0.749462] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker4/model-1_4.sdf\n'}
+[0.749528] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker4/model-1_5.sdf\n'}
+[0.749586] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker4/model.config\n'}
+[0.750632] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker4/model.sdf\n'}
+[0.751463] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker5/materials/textures/Marker5.png\n'}
+[0.752118] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker5/meshes/Marker5.dae\n'}
+[0.752196] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker5/model-1_4.sdf\n'}
+[0.752262] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker5/model-1_5.sdf\n'}
+[0.752322] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker5/model.config\n'}
+[0.752402] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker5/model.sdf\n'}
+[0.752468] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker6/materials/textures/Marker6.png\n'}
+[0.752533] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker6/meshes/Marker6.dae\n'}
+[0.752596] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker6/model-1_4.sdf\n'}
+[0.752659] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker6/model-1_5.sdf\n'}
+[0.752720] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker6/model.config\n'}
+[0.752783] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker6/model.sdf\n'}
+[0.752846] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker7/materials/textures/Marker7.png\n'}
+[0.752909] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker7/meshes/Marker7.dae\n'}
+[0.752973] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker7/model-1_4.sdf\n'}
+[0.753037] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker7/model-1_5.sdf\n'}
+[0.753100] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker7/model.config\n'}
+[0.753170] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker7/model.sdf\n'}
+[0.753242] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker8/materials/textures/Marker8.png\n'}
+[0.753303] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker8/meshes/Marker8.dae\n'}
+[0.753369] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker8/model-1_4.sdf\n'}
+[0.753436] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker8/model-1_5.sdf\n'}
+[0.753506] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker8/model.config\n'}
+[0.753571] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker8/model.sdf\n'}
+[0.753632] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker9/materials/textures/Marker9.png\n'}
+[0.753695] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker9/meshes/Marker9.dae\n'}
+[0.753757] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker9/model-1_4.sdf\n'}
+[0.753822] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker9/model-1_5.sdf\n'}
+[0.753888] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker9/model.config\n'}
+[0.753959] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/models/turtlebot3_home_service_challenge/marker9/model.sdf\n'}
+[0.754023] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/meshes/open_manipulator_x/gripper_left_palm.stl\n'}
+[0.754089] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/meshes/open_manipulator_x/gripper_right_palm.stl\n'}
+[0.754154] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/meshes/open_manipulator_x/link1.stl\n'}
+[0.754233] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/meshes/open_manipulator_x/link2.stl\n'}
+[0.754303] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/meshes/open_manipulator_x/link3.stl\n'}
+[0.754369] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/meshes/open_manipulator_x/link4.stl\n'}
+[0.754433] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/meshes/open_manipulator_x/link5.stl\n'}
+[0.754498] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/meshes/turtlebot3_waffle_pi/base.stl\n'}
+[0.763094] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/ament_index/resource_index/packages/turtlebot3_navigation2\n'}
+[0.763186] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/cmake/turtlebot3_navigation2Config.cmake\n'}
+[0.763259] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/cmake/turtlebot3_navigation2Config-version.cmake\n'}
+[0.763326] (turtlebot3_navigation2) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_navigation2/share/turtlebot3_navigation2/package.xml\n'}
+[0.763392] (turtlebot3_description) CommandEnded: {'returncode': 0}
+[0.785128] (turtlebot3_description) JobEnded: {'identifier': 'turtlebot3_description', 'rc': 0}
+[0.785496] (turtlebot3_navigation2) CommandEnded: {'returncode': 0}
+[0.803786] (-) TimerEvent: {}
+[0.818407] (turtlebot3_navigation2) JobEnded: {'identifier': 'turtlebot3_navigation2', 'rc': 0}
+[0.819628] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/meshes/turtlebot3_waffle_pi/ladar.stl\n'}
+[0.820352] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/meshes/turtlebot3_waffle_pi/left_tire.stl\n'}
+[0.820431] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/meshes/turtlebot3_waffle_pi/right_tire.stl\n'}
+[0.820497] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/ament_index/resource_index/package_run_dependencies/turtlebot3_manipulation_gazebo\n'}
+[0.820571] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/ament_index/resource_index/parent_prefix_path/turtlebot3_manipulation_gazebo\n'}
+[0.820636] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/environment/ament_prefix_path.sh\n'}
+[0.820699] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/environment/ament_prefix_path.dsv\n'}
+[0.820770] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/environment/path.sh\n'}
+[0.820835] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/environment/path.dsv\n'}
+[0.820905] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/local_setup.bash\n'}
+[0.820971] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/local_setup.sh\n'}
+[0.821032] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/local_setup.zsh\n'}
+[0.821095] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/local_setup.dsv\n'}
+[0.821158] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Symlinking: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/package.dsv\n'}
+[0.821478] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/ament_index/resource_index/packages/turtlebot3_manipulation_gazebo\n'}
+[0.821537] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/cmake/turtlebot3_manipulation_gazeboConfig.cmake\n'}
+[0.821601] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/cmake/turtlebot3_manipulation_gazeboConfig-version.cmake\n'}
+[0.821675] (turtlebot3_manipulation_gazebo) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_manipulation_gazebo/share/turtlebot3_manipulation_gazebo/package.xml\n'}
+[0.821811] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/msg/detail/version_info__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.822623] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/dqn__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.822802] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/goal__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.822940] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/include/turtlebot3_msgs/turtlebot3_msgs/srv/detail/sound__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.823102] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/environment/pythonpath.sh\n'}
+[0.823261] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/environment/pythonpath.dsv\n'}
+[0.823645] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs-2.4.0-py3.10.egg-info/PKG-INFO\n'}
+[0.823782] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs-2.4.0-py3.10.egg-info/SOURCES.txt\n'}
+[0.824039] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs-2.4.0-py3.10.egg-info/dependency_links.txt\n'}
+[0.824241] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs-2.4.0-py3.10.egg-info/top_level.txt\n'}
+[0.824408] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/__init__.py\n'}
+[0.824473] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/_turtlebot3_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[0.824545] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/_turtlebot3_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[0.824610] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/_turtlebot3_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[0.824670] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/action/__init__.py\n'}
+[0.824726] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/action/_patrol.py\n'}
+[0.824788] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/action/_patrol_s.c\n'}
+[0.824843] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/libturtlebot3_msgs__rosidl_generator_py.so\n'}
+[0.824899] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/msg/__init__.py\n'}
+[0.824953] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/msg/_sensor_state.py\n'}
+[0.825010] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/msg/_sensor_state_s.c\n'}
+[0.825171] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/msg/_sound.py\n'}
+[0.825408] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/msg/_sound_s.c\n'}
+[0.825557] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/msg/_version_info.py\n'}
+[0.825710] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/msg/_version_info_s.c\n'}
+[0.825849] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/srv/__init__.py\n'}
+[0.825964] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/srv/_dqn.py\n'}
+[0.826045] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/srv/_dqn_s.c\n'}
+[0.826101] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/srv/_goal.py\n'}
+[0.826165] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/srv/_goal_s.c\n'}
+[0.826235] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/srv/_sound.py\n'}
+[0.826299] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/srv/_sound_s.c\n'}
+[0.826349] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/turtlebot3_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.826399] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/turtlebot3_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.826480] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/turtlebot3_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.826542] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/turtlebot3_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.826602] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/turtlebot3_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.826660] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/turtlebot3_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.826723] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/ament_index/resource_index/rust_packages/turtlebot3_msgs\n'}
+[0.826784] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/rust/Cargo.toml\n'}
+[0.826844] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/rust/build.rs\n'}
+[0.826900] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/rust/src/action.rs\n'}
+[0.826965] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/rust/src/action/rmw.rs\n'}
+[0.827024] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/rust/src/lib.rs\n'}
+[0.827082] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/rust/src/msg.rs\n'}
+[0.827142] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/rust/src/msg/rmw.rs\n'}
+[0.827471] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/rust/src/srv.rs\n'}
+[0.827701] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/rust/src/srv/rmw.rs\n'}
+[0.827781] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/msg/SensorState.idl\n'}
+[0.827851] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/msg/Sound.idl\n'}
+[0.828189] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/msg/VersionInfo.idl\n'}
+[0.828367] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/srv/Sound.idl\n'}
+[0.828637] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/srv/Dqn.idl\n'}
+[0.828844] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/srv/Goal.idl\n'}
+[0.829080] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/action/Patrol.idl\n'}
+[0.829294] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/msg/SensorState.msg\n'}
+[0.829470] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/msg/Sound.msg\n'}
+[0.829645] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/msg/VersionInfo.msg\n'}
+[0.829818] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/srv/Sound.srv\n'}
+[0.830002] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/srv/Sound_Request.msg\n'}
+[0.830163] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/srv/Sound_Response.msg\n'}
+[0.830251] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/srv/Dqn.srv\n'}
+[0.830321] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/srv/Dqn_Request.msg\n'}
+[0.830462] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/srv/Dqn_Response.msg\n'}
+[0.830592] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/srv/Goal.srv\n'}
+[0.830661] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/srv/Goal_Request.msg\n'}
+[0.830729] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/srv/Goal_Response.msg\n'}
+[0.830797] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/action/Patrol.action\n'}
+[0.830863] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/ament_index/resource_index/package_run_dependencies/turtlebot3_msgs\n'}
+[0.830932] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/ament_index/resource_index/parent_prefix_path/turtlebot3_msgs\n'}
+[0.830995] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/environment/ament_prefix_path.sh\n'}
+[0.831058] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/environment/ament_prefix_path.dsv\n'}
+[0.831121] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/environment/path.sh\n'}
+[0.831200] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/environment/path.dsv\n'}
+[0.831271] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/local_setup.bash\n'}
+[0.831334] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/local_setup.sh\n'}
+[0.831400] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/local_setup.zsh\n'}
+[0.831462] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/local_setup.dsv\n'}
+[0.831523] (turtlebot3_msgs) StdoutLine: {'line': b'-- Symlinking: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/package.dsv\n'}
+[0.831590] (turtlebot3_manipulation_gazebo) CommandEnded: {'returncode': 0}
+[0.866639] (turtlebot3_manipulation_gazebo) JobEnded: {'identifier': 'turtlebot3_manipulation_gazebo', 'rc': 0}
+[0.867278] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/ament_index/resource_index/packages/turtlebot3_msgs\n'}
+[0.867380] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[0.867443] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.867508] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.867581] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.867650] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[0.867714] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[0.867778] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[0.867841] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/turtlebot3_msgsConfig.cmake\n'}
+[0.867903] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/turtlebot3_msgsConfig-version.cmake\n'}
+[0.867966] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/package.xml\n'}
+[0.868031] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/lib/libturtlebot3_msgs__rosidl_generator_c.so\n'}
+[0.868095] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/lib/libturtlebot3_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[0.868159] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/lib/libturtlebot3_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[0.868233] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/lib/libturtlebot3_msgs__rosidl_typesupport_introspection_c.so\n'}
+[0.868298] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/lib/libturtlebot3_msgs__rosidl_typesupport_c.so\n'}
+[0.868359] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/lib/libturtlebot3_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[0.868420] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/lib/libturtlebot3_msgs__rosidl_typesupport_cpp.so\n'}
+[0.887040] (turtlebot3_msgs) StdoutLine: {'line': b"Listing '/ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs'...\n"}
+[0.887833] (turtlebot3_msgs) StdoutLine: {'line': b"Listing '/ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/action'...\n"}
+[0.887916] (turtlebot3_msgs) StdoutLine: {'line': b"Listing '/ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/msg'...\n"}
+[0.887980] (turtlebot3_msgs) StdoutLine: {'line': b"Listing '/ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages/turtlebot3_msgs/srv'...\n"}
+[0.891084] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/lib/libturtlebot3_msgs__rosidl_generator_py.so\n'}
+[0.892234] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/export_turtlebot3_msgs__rosidl_generator_cExport.cmake\n'}
+[0.892379] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/export_turtlebot3_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[0.893708] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/export_turtlebot3_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[0.894466] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/export_turtlebot3_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[0.895950] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/export_turtlebot3_msgs__rosidl_generator_cppExport.cmake\n'}
+[0.899985] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/export_turtlebot3_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[0.900155] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/export_turtlebot3_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[0.900786] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/turtlebot3_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[0.900912] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/turtlebot3_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[0.901623] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/turtlebot3_msgs__rosidl_typesupport_cExport.cmake\n'}
+[0.901726] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/turtlebot3_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[0.902131] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/turtlebot3_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[0.902841] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/turtlebot3_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[0.903842] (-) TimerEvent: {}
+[0.904254] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/turtlebot3_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[0.904870] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/turtlebot3_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[0.906738] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/export_turtlebot3_msgs__rosidl_generator_pyExport.cmake\n'}
+[0.907908] (turtlebot3_msgs) StdoutLine: {'line': b'-- Up-to-date: /ros_ws/install/turtlebot3_msgs/share/turtlebot3_msgs/cmake/export_turtlebot3_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[0.915796] (turtlebot3_msgs) CommandEnded: {'returncode': 0}
+[0.959585] (turtlebot3_msgs) JobEnded: {'identifier': 'turtlebot3_msgs', 'rc': 0}
+[0.960845] (turtlebot3_node) JobStarted: {'identifier': 'turtlebot3_node'}
+[0.965956] (turtlebot3_example) JobStarted: {'identifier': 'turtlebot3_example'}
+[0.974824] (turtlebot3_fake_node) JobStarted: {'identifier': 'turtlebot3_fake_node'}
+[0.982732] (turtlebot3_node) JobProgress: {'identifier': 'turtlebot3_node', 'progress': 'cmake'}
+[0.987397] (turtlebot3_node) JobProgress: {'identifier': 'turtlebot3_node', 'progress': 'build'}
+[0.987814] (turtlebot3_node) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/build/turtlebot3_node', '--', '-j8', '-l8'], 'cwd': '/ros_ws/build/turtlebot3_node', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/ros_ws/install/turtlebot3_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/ros_ws/install/turtlebot3_msgs:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_node'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/ros_ws/install/turtlebot3_msgs:/opt/ros/humble')]), 'shell': False}
+[1.003969] (-) TimerEvent: {}
+[1.105694] (-) TimerEvent: {}
+[1.206061] (-) TimerEvent: {}
+[1.309236] (-) TimerEvent: {}
+[1.409591] (-) TimerEvent: {}
+[1.509918] (-) TimerEvent: {}
+[1.610293] (-) TimerEvent: {}
+[1.710679] (-) TimerEvent: {}
+[1.786805] (turtlebot3_node) StdoutLine: {'line': b'[  7%] Building CXX object CMakeFiles/turtlebot3_node_lib.dir/src/devices/motor_power.cpp.o\n'}
+[1.787103] (turtlebot3_node) StdoutLine: {'line': b'[ 21%] Building CXX object CMakeFiles/turtlebot3_node_lib.dir/src/dynamixel_sdk_wrapper.cpp.o\n'}
+[1.787204] (turtlebot3_node) StdoutLine: {'line': b'[ 28%] Building CXX object CMakeFiles/turtlebot3_node_lib.dir/src/devices/sound.cpp.o\n'}
+[1.787281] (turtlebot3_node) StdoutLine: {'line': b'[ 28%] Building CXX object CMakeFiles/turtlebot3_node_lib.dir/src/devices/reset.cpp.o\n'}
+[1.787348] (turtlebot3_node) StdoutLine: {'line': b'[ 35%] Building CXX object CMakeFiles/turtlebot3_node_lib.dir/src/diff_drive_controller.cpp.o\n'}
+[1.787413] (turtlebot3_node) StdoutLine: {'line': b'[ 42%] Building CXX object CMakeFiles/turtlebot3_node_lib.dir/src/odometry.cpp.o\n'}
+[1.787480] (turtlebot3_node) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/turtlebot3_node_lib.dir/src/turtlebot3.cpp.o\n'}
+[1.787547] (turtlebot3_node) StdoutLine: {'line': b'[ 57%] Building CXX object CMakeFiles/turtlebot3_node_lib.dir/src/sensors/battery_state.cpp.o\n'}
+[1.790560] (turtlebot3_fake_node) JobProgress: {'identifier': 'turtlebot3_fake_node', 'progress': 'cmake'}
+[1.792055] (turtlebot3_fake_node) JobProgress: {'identifier': 'turtlebot3_fake_node', 'progress': 'build'}
+[1.792537] (turtlebot3_fake_node) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros_ws/build/turtlebot3_fake_node', '--', '-j8', '-l8'], 'cwd': '/ros_ws/build/turtlebot3_fake_node', 'env': OrderedDict([('HOSTNAME', '52d3292b94e7'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/ros_ws/install/turtlebot3_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/ros_ws'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/ros_ws/install/turtlebot3_msgs:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros_ws/build/turtlebot3_fake_node'), ('TURTLEBOT3_MODEL', 'burger'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/ros_ws/install/turtlebot3_msgs:/opt/ros/humble')]), 'shell': False}
+[1.801101] (turtlebot3_teleop) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/ros_ws/build/turtlebot3_teleop/build', '--no-deps', 'symlink_data'], 'cwd': '/ros_ws/build/turtlebot3_teleop', 'env': {'HOSTNAME': '52d3292b94e7', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'ROS_LOCALHOST_ONLY': '0', 'QT_X11_NO_MITSHM': '1', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'DEBIAN_FRONTEND': 'noninteractive', 'PWD': '/ros_ws/build/turtlebot3_teleop', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/build/turtlebot3_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/ros_ws/install/turtlebot3_teleop/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1'}, 'shell': False}
+[1.816602] (robot_navigation) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/ros_ws/build/robot_navigation/build', '--no-deps', 'symlink_data'], 'cwd': '/ros_ws/build/robot_navigation', 'env': {'HOSTNAME': '52d3292b94e7', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'ROS_LOCALHOST_ONLY': '0', 'QT_X11_NO_MITSHM': '1', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'DEBIAN_FRONTEND': 'noninteractive', 'PWD': '/ros_ws/build/robot_navigation', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/build/robot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/ros_ws/install/robot_navigation/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1'}, 'shell': False}
+[1.817901] (-) TimerEvent: {}
+[1.920257] (-) TimerEvent: {}
+[1.951280] (turtlebot3_fake_node) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/turtlebot3_fake_node.dir/src/turtlebot3_fake_node.cpp.o\n'}
+[2.020379] (-) TimerEvent: {}
+[2.120722] (-) TimerEvent: {}
+[2.221156] (-) TimerEvent: {}
+[2.321540] (-) TimerEvent: {}
+[2.421888] (-) TimerEvent: {}
+[2.522249] (-) TimerEvent: {}
+[2.625333] (-) TimerEvent: {}
+[2.666504] (robot_navigation) StdoutLine: {'line': b'running develop\n'}
+[2.725474] (-) TimerEvent: {}
+[2.777741] (turtlebot3_teleop) StdoutLine: {'line': b'running develop\n'}
+[2.825651] (-) TimerEvent: {}
+[2.928268] (-) TimerEvent: {}
+[3.031340] (-) TimerEvent: {}
+[3.104686] (turtlebot3_example) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/ros_ws/build/turtlebot3_example/build', '--no-deps', 'symlink_data'], 'cwd': '/ros_ws/build/turtlebot3_example', 'env': {'HOSTNAME': '52d3292b94e7', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/ros_ws/install/turtlebot3_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/root', 'OLDPWD': '/ros_ws', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'ROS_LOCALHOST_ONLY': '0', 'QT_X11_NO_MITSHM': '1', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'AMENT_PREFIX_PATH': '/ros_ws/install/turtlebot3_msgs:/opt/ros/humble', 'DEBIAN_FRONTEND': 'noninteractive', 'PWD': '/ros_ws/build/turtlebot3_example', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros_ws/build/turtlebot3_example/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/ros_ws/install/turtlebot3_example/lib/python3.10/site-packages:/ros_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/ros_ws/install/turtlebot3_msgs'}, 'shell': False}
+[3.131439] (-) TimerEvent: {}
+[3.165081] (robot_navigation) StdoutLine: {'line': b'running egg_info\n'}
+[3.165727] (robot_navigation) StdoutLine: {'line': b'writing robot_navigation.egg-info/PKG-INFO\n'}
+[3.171259] (robot_navigation) StdoutLine: {'line': b'writing dependency_links to robot_navigation.egg-info/dependency_links.txt\n'}
+[3.171521] (robot_navigation) StdoutLine: {'line': b'writing entry points to robot_navigation.egg-info/entry_points.txt\n'}
+[3.171603] (robot_navigation) StdoutLine: {'line': b'writing requirements to robot_navigation.egg-info/requires.txt\n'}
+[3.171672] (robot_navigation) StdoutLine: {'line': b'writing top-level names to robot_navigation.egg-info/top_level.txt\n'}
+[3.171740] (robot_navigation) StdoutLine: {'line': b"reading manifest file 'robot_navigation.egg-info/SOURCES.txt'\n"}
+[3.172908] (robot_navigation) StdoutLine: {'line': b"writing manifest file 'robot_navigation.egg-info/SOURCES.txt'\n"}
+[3.178247] (robot_navigation) StdoutLine: {'line': b'running build_ext\n'}
+[3.178705] (robot_navigation) StdoutLine: {'line': b'Creating /ros_ws/install/robot_navigation/lib/python3.10/site-packages/robot-navigation.egg-link (link to .)\n'}
+[3.178784] (robot_navigation) StdoutLine: {'line': b'Installing navigator script to /ros_ws/install/robot_navigation/lib/robot_navigation\n'}
+[3.178825] (robot_navigation) StdoutLine: {'line': b'\n'}
+[3.178864] (robot_navigation) StdoutLine: {'line': b'Installed /ros_ws/build/robot_navigation\n'}
+[3.178901] (robot_navigation) StdoutLine: {'line': b'running symlink_data\n'}
+[3.235324] (-) TimerEvent: {}
+[3.240540] (turtlebot3_node) StdoutLine: {'line': b'[ 64%] Building CXX object CMakeFiles/turtlebot3_node_lib.dir/src/sensors/imu.cpp.o\n'}
+[3.280164] (robot_navigation) CommandEnded: {'returncode': 0}
+[3.326809] (robot_navigation) JobEnded: {'identifier': 'robot_navigation', 'rc': 0}
+[3.337300] (-) TimerEvent: {}
+[3.440297] (-) TimerEvent: {}
+[3.440671] (turtlebot3_teleop) StdoutLine: {'line': b'running egg_info\n'}
+[3.448569] (turtlebot3_teleop) StdoutLine: {'line': b'writing turtlebot3_teleop.egg-info/PKG-INFO\n'}
+[3.449148] (turtlebot3_teleop) StdoutLine: {'line': b'writing dependency_links to turtlebot3_teleop.egg-info/dependency_links.txt\n'}
+[3.449452] (turtlebot3_teleop) StdoutLine: {'line': b'writing entry points to turtlebot3_teleop.egg-info/entry_points.txt\n'}
+[3.449694] (turtlebot3_teleop) StdoutLine: {'line': b'writing requirements to turtlebot3_teleop.egg-info/requires.txt\n'}
+[3.449945] (turtlebot3_teleop) StdoutLine: {'line': b'writing top-level names to turtlebot3_teleop.egg-info/top_level.txt\n'}
+[3.455277] (turtlebot3_teleop) StdoutLine: {'line': b"reading manifest file 'turtlebot3_teleop.egg-info/SOURCES.txt'\n"}
+[3.460264] (turtlebot3_teleop) StdoutLine: {'line': b"writing manifest file 'turtlebot3_teleop.egg-info/SOURCES.txt'\n"}
+[3.471507] (turtlebot3_teleop) StdoutLine: {'line': b'running build_ext\n'}
+[3.471918] (turtlebot3_teleop) StdoutLine: {'line': b'Creating /ros_ws/install/turtlebot3_teleop/lib/python3.10/site-packages/turtlebot3-teleop.egg-link (link to .)\n'}
+[3.472144] (turtlebot3_teleop) StdoutLine: {'line': b'Installing teleop_keyboard script to /ros_ws/install/turtlebot3_teleop/lib/turtlebot3_teleop\n'}
+[3.472377] (turtlebot3_teleop) StdoutLine: {'line': b'\n'}
+[3.472581] (turtlebot3_teleop) StdoutLine: {'line': b'Installed /ros_ws/build/turtlebot3_teleop\n'}
+[3.472785] (turtlebot3_teleop) StdoutLine: {'line': b'running symlink_data\n'}
+[3.540405] (-) TimerEvent: {}
+[3.631440] (turtlebot3_teleop) CommandEnded: {'returncode': 0}
+[3.640510] (-) TimerEvent: {}
+[3.680270] (turtlebot3_teleop) JobEnded: {'identifier': 'turtlebot3_teleop', 'rc': 0}
+[3.735204] (turtlebot3_example) StdoutLine: {'line': b'running develop\n'}
+[3.742255] (-) TimerEvent: {}
+[3.845266] (-) TimerEvent: {}
+[3.925561] (turtlebot3_example) StdoutLine: {'line': b'running egg_info\n'}
+[3.926240] (turtlebot3_example) StdoutLine: {'line': b'writing turtlebot3_example.egg-info/PKG-INFO\n'}
+[3.926984] (turtlebot3_example) StdoutLine: {'line': b'writing dependency_links to turtlebot3_example.egg-info/dependency_links.txt\n'}
+[3.927516] (turtlebot3_example) StdoutLine: {'line': b'writing entry points to turtlebot3_example.egg-info/entry_points.txt\n'}
+[3.927865] (turtlebot3_example) StdoutLine: {'line': b'writing requirements to turtlebot3_example.egg-info/requires.txt\n'}
+[3.928166] (turtlebot3_example) StdoutLine: {'line': b'writing top-level names to turtlebot3_example.egg-info/top_level.txt\n'}
+[3.931826] (turtlebot3_example) StdoutLine: {'line': b"reading manifest file 'turtlebot3_example.egg-info/SOURCES.txt'\n"}
+[3.933645] (turtlebot3_example) StdoutLine: {'line': b"writing manifest file 'turtlebot3_example.egg-info/SOURCES.txt'\n"}
+[3.936467] (turtlebot3_example) StdoutLine: {'line': b'running build_ext\n'}
+[3.936794] (turtlebot3_example) StdoutLine: {'line': b'Creating /ros_ws/install/turtlebot3_example/lib/python3.10/site-packages/turtlebot3-example.egg-link (link to .)\n'}
+[3.937665] (turtlebot3_example) StdoutLine: {'line': b'Installing turtlebot3_absolute_move script to /ros_ws/install/turtlebot3_example/lib/turtlebot3_example\n'}
+[3.938357] (turtlebot3_example) StdoutLine: {'line': b'Installing turtlebot3_interactive_marker script to /ros_ws/install/turtlebot3_example/lib/turtlebot3_example\n'}
+[3.938884] (turtlebot3_example) StdoutLine: {'line': b'Installing turtlebot3_obstacle_detection script to /ros_ws/install/turtlebot3_example/lib/turtlebot3_example\n'}
+[3.939234] (turtlebot3_example) StdoutLine: {'line': b'Installing turtlebot3_patrol_client script to /ros_ws/install/turtlebot3_example/lib/turtlebot3_example\n'}
+[3.939947] (turtlebot3_example) StdoutLine: {'line': b'Installing turtlebot3_patrol_server script to /ros_ws/install/turtlebot3_example/lib/turtlebot3_example\n'}
+[3.940401] (turtlebot3_example) StdoutLine: {'line': b'Installing turtlebot3_relative_move script to /ros_ws/install/turtlebot3_example/lib/turtlebot3_example\n'}
+[3.941199] (turtlebot3_example) StdoutLine: {'line': b'\n'}
+[3.941495] (turtlebot3_example) StdoutLine: {'line': b'Installed /ros_ws/build/turtlebot3_example\n'}
+[3.941685] (turtlebot3_example) StdoutLine: {'line': b'running symlink_data\n'}
+[3.945443] (-) TimerEvent: {}
+[4.048317] (-) TimerEvent: {}
+[4.083133] (turtlebot3_example) CommandEnded: {'returncode': 0}
+[4.135460] (turtlebot3_example) JobEnded: {'identifier': 'turtlebot3_example', 'rc': 0}
+[4.148464] (-) TimerEvent: {}
+[4.248904] (-) TimerEvent: {}
+[4.349302] (-) TimerEvent: {}
+[4.453539] (-) TimerEvent: {}
+[4.555707] (-) TimerEvent: {}
+[4.656078] (-) TimerEvent: {}
+[4.759248] (-) TimerEvent: {}
+[4.861783] (-) TimerEvent: {}
+[4.962154] (-) TimerEvent: {}
+[5.062558] (-) TimerEvent: {}
+[5.165296] (-) TimerEvent: {}
+[5.268346] (-) TimerEvent: {}
+[5.368856] (-) TimerEvent: {}
+[5.469472] (-) TimerEvent: {}
+[5.570004] (-) TimerEvent: {}
+[5.670443] (-) TimerEvent: {}
+[5.770910] (-) TimerEvent: {}
+[5.871374] (-) TimerEvent: {}
+[5.971793] (-) TimerEvent: {}
+[6.074335] (-) TimerEvent: {}
+[6.174758] (-) TimerEvent: {}
+[6.275158] (-) TimerEvent: {}
+[6.378280] (-) TimerEvent: {}
+[6.478688] (-) TimerEvent: {}
+[6.579056] (-) TimerEvent: {}
+[6.679313] (-) TimerEvent: {}
+[6.779538] (-) TimerEvent: {}
+[6.879745] (-) TimerEvent: {}
+[6.980140] (-) TimerEvent: {}
+[7.080592] (-) TimerEvent: {}
+[7.181040] (-) TimerEvent: {}
+[7.281357] (-) TimerEvent: {}
+[7.381748] (-) TimerEvent: {}
+[7.482239] (-) TimerEvent: {}
+[7.582529] (-) TimerEvent: {}
+[7.682746] (-) TimerEvent: {}
+[7.784283] (-) TimerEvent: {}
+[7.884649] (-) TimerEvent: {}
+[7.985004] (-) TimerEvent: {}
+[8.085448] (-) TimerEvent: {}
+[8.204770] (-) TimerEvent: {}
+[8.318501] (-) TimerEvent: {}
+[8.421315] (-) TimerEvent: {}
+[8.521785] (-) TimerEvent: {}
+[8.624287] (-) TimerEvent: {}
+[8.724689] (-) TimerEvent: {}
+[8.824913] (-) TimerEvent: {}
+[8.925272] (-) TimerEvent: {}
+[9.025613] (-) TimerEvent: {}
+[9.125992] (-) TimerEvent: {}
+[9.226311] (-) TimerEvent: {}
+[9.326696] (-) TimerEvent: {}
+[9.426964] (-) TimerEvent: {}
+[9.527724] (-) TimerEvent: {}
+[9.628065] (-) TimerEvent: {}
+[9.730497] (-) TimerEvent: {}
+[9.830900] (-) TimerEvent: {}
+[9.934333] (-) TimerEvent: {}
+[10.038289] (-) TimerEvent: {}
+[10.138725] (-) TimerEvent: {}
+[10.239146] (-) TimerEvent: {}
+[10.339593] (-) TimerEvent: {}
+[10.439997] (-) TimerEvent: {}
+[10.540445] (-) TimerEvent: {}
+[10.643299] (-) TimerEvent: {}
+[10.743750] (-) TimerEvent: {}
+[10.844220] (-) TimerEvent: {}
+[10.944702] (-) TimerEvent: {}
+[11.045102] (-) TimerEvent: {}
+[11.122673] (turtlebot3_node) StdoutLine: {'line': b'[ 71%] Building CXX object CMakeFiles/turtlebot3_node_lib.dir/src/sensors/joint_state.cpp.o\n'}
+[11.147305] (-) TimerEvent: {}
+[11.247709] (-) TimerEvent: {}
+[11.348092] (-) TimerEvent: {}
+[11.451309] (-) TimerEvent: {}
+[11.551762] (-) TimerEvent: {}
+[11.654288] (-) TimerEvent: {}
+[11.754860] (-) TimerEvent: {}
+[11.855272] (-) TimerEvent: {}
+[11.958287] (-) TimerEvent: {}
+[12.058693] (-) TimerEvent: {}
+[12.159049] (-) TimerEvent: {}
+[12.259292] (-) TimerEvent: {}
+[12.359530] (-) TimerEvent: {}
+[12.459921] (-) TimerEvent: {}
+[12.560280] (-) TimerEvent: {}
+[12.660701] (-) TimerEvent: {}
+[12.761144] (-) TimerEvent: {}
+[12.861463] (-) TimerEvent: {}
+[12.961868] (-) TimerEvent: {}
+[13.062117] (-) TimerEvent: {}
+[13.162343] (-) TimerEvent: {}
+[13.265116] (-) TimerEvent: {}
+[13.367271] (-) TimerEvent: {}
+[13.467701] (-) TimerEvent: {}
+[13.568028] (-) TimerEvent: {}
+[13.668487] (-) TimerEvent: {}
+[13.726904] (turtlebot3_node) StdoutLine: {'line': b'[ 78%] Building CXX object CMakeFiles/turtlebot3_node_lib.dir/src/sensors/sensor_state.cpp.o\n'}
+[13.768644] (-) TimerEvent: {}
+[13.869321] (-) TimerEvent: {}
+[13.972283] (-) TimerEvent: {}
+[14.072734] (-) TimerEvent: {}
+[14.173256] (-) TimerEvent: {}
+[14.273666] (-) TimerEvent: {}
+[14.374036] (-) TimerEvent: {}
+[14.474492] (-) TimerEvent: {}
+[14.575041] (-) TimerEvent: {}
+[14.675579] (-) TimerEvent: {}
+[14.776000] (-) TimerEvent: {}
+[14.876359] (-) TimerEvent: {}
+[14.987794] (-) TimerEvent: {}
+[15.088058] (-) TimerEvent: {}
+[15.188326] (-) TimerEvent: {}
+[15.288634] (-) TimerEvent: {}
+[15.388975] (-) TimerEvent: {}
+[15.489403] (-) TimerEvent: {}
+[15.589835] (-) TimerEvent: {}
+[15.690276] (-) TimerEvent: {}
+[15.790651] (-) TimerEvent: {}
+[15.890923] (-) TimerEvent: {}
+[15.991195] (-) TimerEvent: {}
+[16.091443] (-) TimerEvent: {}
+[16.194322] (-) TimerEvent: {}
+[16.294739] (-) TimerEvent: {}
+[16.395104] (-) TimerEvent: {}
+[16.496418] (-) TimerEvent: {}
+[16.596875] (-) TimerEvent: {}
+[16.697272] (-) TimerEvent: {}
+[16.800912] (-) TimerEvent: {}
+[16.903906] (-) TimerEvent: {}
+[17.004592] (-) TimerEvent: {}
+[17.104978] (-) TimerEvent: {}
+[17.205415] (-) TimerEvent: {}
+[17.305819] (-) TimerEvent: {}
+[17.406118] (-) TimerEvent: {}
+[26.102728] (-) TimerEvent: {}

@@ -1,3 +1,0 @@
-Invoking command in '/ros_ws/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /ros_ws/src/turtlebot3_simulations/turtlebot3_gazebo -DCMAKE_INSTALL_PREFIX=/ros_ws/install/turtlebot3_gazebo
-Invoked command in '/ros_ws/build/turtlebot3_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /ros_ws/src/turtlebot3_simulations/turtlebot3_gazebo -DCMAKE_INSTALL_PREFIX=/ros_ws/install/turtlebot3_gazebo
-Invoking command in '/ros_ws/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /ros_ws/build/turtlebot3_gazebo -- -j8 -l8

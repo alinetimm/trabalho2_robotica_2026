@@ -1,2 +1,1 @@
-source;share/turtlebot3_manipulation_gazebo/environment/ament_prefix_path.sh
-source;share/turtlebot3_manipulation_gazebo/environment/path.sh
+/ros_ws/build/turtlebot3_manipulation_gazebo/ament_cmake_environment_hooks/local_setup.dsv
