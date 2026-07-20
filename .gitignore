@@ -1,0 +1,11 @@
+# colcon workspace build artifacts
+ros_ws/build/
+ros_ws/install/
+ros_ws/log/
+
+# runtime logs / mission output
+ros_ws/logs/
+
+# python
+__pycache__/
+*.pyc

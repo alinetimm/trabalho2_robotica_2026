@@ -1,1 +1,0 @@
-/ros_ws/src/turtlebot3_simulations/turtlebot3_manipulation_gazebo/launch/gazebo.launch.py

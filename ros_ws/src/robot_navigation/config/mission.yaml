@@ -32,12 +32,24 @@ navigator:
         y: 1.20
         tol: 0.35
 
-    bug2:
-      d_obs: 0.35
-      wall_dist: 0.40
-      mline_tol: 0.30
-      lin: 0.18
-      ang: 0.9
+    plan:
+      grid_res: 0.05
+      world_min: -2.5
+      world_max: 2.5
+      robot_radius: 0.11
+      safety_margin: 0.10
+      replan_period_s: 0.33
+      lookahead: 0.3
+      k_ang: 1.5
+      v_max: 0.20
+      w_max: 1.0
+      turn_in_place_angle: 0.8
+      explore_time_s: 1.5
+      max_explore_attempts: 10
+
+    safety:
+      frontal_deg: 20.0
+      min_dist: 0.20
 
     approach:
       window_dist: 0.6

@@ -16,7 +16,7 @@ setup(
     zip_safe=True,
     maintainer='Aline Timm',
     maintainer_email='alinetimm1510@gmail.com',
-    description='Navegacao autonoma do TurtleBot3 Burger (Bug2 + wall-following) no ambiente stage5',
+    description='Navegacao autonoma do TurtleBot3 Burger (gap-following/VFH simplificado) no ambiente stage5',
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={

@@ -10,7 +10,7 @@ from matplotlib.lines import Line2D
 ARENA_HALF = 2.425
 TARGET_RADIUS = 0.12
 TARGET_COLOR = {'verde': 'green', 'vermelho': 'red', 'azul': 'blue', 'laranja': 'orange'}
-STATE_COLOR = {'GO_TO_GOAL': 'tab:blue', 'WALL_FOLLOW': 'tab:red'}
+STATE_COLOR = {'FOLLOW': 'tab:blue', 'PLAN': 'tab:red', 'APPROACH': 'tab:purple'}
 OTHER_COLOR = 'lightgray'
 
 
@@ -51,18 +51,41 @@ def hit_and_leave_points(rows):
     for r in rows:
         st = r['estado']
         x, y = float(r['x']), float(r['y'])
-        if prev_state == 'GO_TO_GOAL' and st == 'WALL_FOLLOW':
+        if prev_state != 'PLAN' and st == 'PLAN':
             hit_x.append(x)
             hit_y.append(y)
-        elif prev_state == 'WALL_FOLLOW' and st != 'WALL_FOLLOW':
+        elif prev_state == 'PLAN' and st != 'PLAN':
             leave_x.append(x)
             leave_y.append(y)
         prev_state = st
     return hit_x, hit_y, leave_x, leave_y
 
 
-def plot(rows, home, targets, out_path):
+def load_occ_grid(csv_path):
+    occ_path = Path(csv_path).with_name(Path(csv_path).stem + '_occ.txt')
+    if not occ_path.exists():
+        return None
+    with open(occ_path) as f:
+        header = f.readline().strip().split(',')
+        res, xmin, ymin, xmax, ymax, n = (
+            float(header[0]), float(header[1]), float(header[2]),
+            float(header[3]), float(header[4]), int(header[5]))
+        grid = []
+        for _ in range(n):
+            line = f.readline().strip()
+            grid.append([int(c) for c in line])
+    # grid[i][j] com i~x, j~y; imshow espera [linha=y][coluna=x] -- transpoe.
+    grid_t = [[grid[i][j] for i in range(n)] for j in range(n)]
+    return grid_t, (xmin, xmax, ymin, ymax)
+
+
+def plot(rows, home, targets, out_path, occ=None):
     fig, ax = plt.subplots(figsize=(8, 8))
+
+    if occ is not None:
+        grid_t, extent = occ
+        ax.imshow(grid_t, origin='lower', extent=extent, cmap='Greys',
+                  alpha=0.35, zorder=0, vmin=0, vmax=1)
 
     wall = [-ARENA_HALF, ARENA_HALF, ARENA_HALF, -ARENA_HALF, -ARENA_HALF]
     wall_y = [-ARENA_HALF, -ARENA_HALF, ARENA_HALF, ARENA_HALF, -ARENA_HALF]
@@ -88,11 +111,12 @@ def plot(rows, home, targets, out_path):
     ax.scatter([hx], [hy], marker='X', s=150, color='black', zorder=4)
 
     legend_elems = [
-        Line2D([0], [0], color=STATE_COLOR['GO_TO_GOAL'], lw=2, label='GO_TO_GOAL'),
-        Line2D([0], [0], color=STATE_COLOR['WALL_FOLLOW'], lw=2, label='WALL_FOLLOW'),
+        Line2D([0], [0], color=STATE_COLOR['FOLLOW'], lw=2, label='FOLLOW'),
+        Line2D([0], [0], color=STATE_COLOR['PLAN'], lw=2, label='PLAN'),
+        Line2D([0], [0], color=STATE_COLOR['APPROACH'], lw=2, label='APPROACH'),
         Line2D([0], [0], color=OTHER_COLOR, lw=1, label='WAITING / DONE'),
-        Line2D([0], [0], marker='x', color='black', lw=0, markersize=8, label='HIT'),
-        Line2D([0], [0], marker='+', color='purple', lw=0, markersize=10, label='LEAVE/LOS_EXIT'),
+        Line2D([0], [0], marker='x', color='black', lw=0, markersize=8, label='entrou em PLAN'),
+        Line2D([0], [0], marker='+', color='purple', lw=0, markersize=10, label='retomou FOLLOW'),
         Line2D([0], [0], marker='X', color='black', lw=0, markersize=10, label='home'),
     ]
     ax.legend(handles=legend_elems, loc='upper left', bbox_to_anchor=(1.02, 1.0),
@@ -100,7 +124,7 @@ def plot(rows, home, targets, out_path):
 
     ax.set_xlabel('x (m)')
     ax.set_ylabel('y (m)')
-    ax.set_title('Trajetoria - Bug2 + missao')
+    ax.set_title('Trajetoria - mapa de ocupacao + wavefront + missao')
     ax.set_aspect('equal')
     ax.set_xlim(-ARENA_HALF - 0.3, ARENA_HALF + 0.3)
     ax.set_ylim(-ARENA_HALF - 0.3, ARENA_HALF + 0.3)
@@ -125,8 +149,9 @@ def main():
 
     home, targets = load_mission(mission_yaml)
     rows = load_log(args.csv_path)
+    occ = load_occ_grid(args.csv_path)
     out_path = args.output or str(Path(args.csv_path).with_suffix('.png'))
-    plot(rows, home, targets, out_path)
+    plot(rows, home, targets, out_path, occ)
 
 
 if __name__ == '__main__':

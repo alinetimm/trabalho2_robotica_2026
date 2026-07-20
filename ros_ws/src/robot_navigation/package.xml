@@ -3,7 +3,7 @@
 <package format="3">
   <name>robot_navigation</name>
   <version>0.0.1</version>
-  <description>Navegacao autonoma do TurtleBot3 Burger (Bug2 + wall-following) no ambiente stage5</description>
+  <description>Navegacao autonoma do TurtleBot3 Burger (gap-following/VFH simplificado) no ambiente stage5</description>
   <maintainer email="alinetimm1510@gmail.com">Aline Timm</maintainer>
   <license>Apache-2.0</license>
 

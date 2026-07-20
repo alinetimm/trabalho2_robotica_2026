@@ -1,7 +1,0 @@
-[0.030s] Invoking command in '/ros_ws/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /ros_ws/build/turtlebot3_gazebo -- -j8 -l8
-[0.654s] [  8%] Building CXX object CMakeFiles/traffic_light_plugin.dir/src/traffic_light_plugin.cpp.o
-[0.654s] [ 16%] Building CXX object CMakeFiles/obstacles.dir/src/obstacles.cpp.o
-[0.654s] [ 25%] Building CXX object CMakeFiles/obstacle2.dir/src/obstacle2.cpp.o
-[0.654s] [ 41%] Building CXX object CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o
-[0.654s] [ 41%] Building CXX object CMakeFiles/traffic_bar_plugin.dir/src/traffic_bar_plugin.cpp.o
-[0.654s] [ 50%] Building CXX object CMakeFiles/obstacle1.dir/src/obstacle1.cpp.o

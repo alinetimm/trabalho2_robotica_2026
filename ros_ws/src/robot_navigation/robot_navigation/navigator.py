@@ -1,4 +1,4 @@
-from collections import namedtuple
+from collections import deque, namedtuple
 from datetime import datetime
 import csv
 import math
@@ -15,7 +15,10 @@ from sensor_msgs.msg import LaserScan
 
 LOG_DIR = '/ros_ws/logs'
 CSV_HEADER = ['t', 'x', 'y', 'yaw', 'estado', 'waypoint', 'dist',
-              'fm', 'fleft', 'fright', 'sleft', 'sright', 'v', 'w']
+              'front_clear', 'path_len', 'v', 'w']
+
+CONTROL_PERIOD = 0.1
+NEI8 = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
 
 
 Waypoint = namedtuple('Waypoint', ['name', 'x', 'y', 'tol', 'is_target'])
@@ -37,39 +40,56 @@ class Navigator(Node):
         self.ox0, self.oy0, self.ot0 = 0.0, 0.0, 0.0
 
         self.widx = 0
-        self.ml_sx, self.ml_sy = self.x0, self.y0
 
         self.ranges = []
         self.amin = 0.0
         self.ainc = 0.0
+        self.range_max = 3.5
+        self.range_min = 0.12
         self.lok = False
 
-        self.state = 'GO_TO_GOAL'
-        self.wdir = 1
-        self.hit_dist = 999.0
-        self.hit_x = 0.0
-        self.hit_y = 0.0
-        self.fticks = 0
+        # Grade de ocupacao: comeca tudo livre/desconhecido (0). Marcada so por
+        # impactos validos do laser -- acumulativa, nunca desmarca (suficiente
+        # para uma arena estatica). A grade inflada e recalculada a cada replan.
+        self.grid_n = int(round((self.WORLD_MAX - self.WORLD_MIN) / self.GRID_RES))
+        self.occ = bytearray(self.grid_n * self.grid_n)
+        self.inflated = bytearray(self.grid_n * self.grid_n)
+        radius_cells = max(1, int(round(
+            (self.ROBOT_RADIUS + self.SAFETY_MARGIN) / self.GRID_RES)))
+        self._inflate_offsets = [
+            (di, dj)
+            for di in range(-radius_cells, radius_cells + 1)
+            for dj in range(-radius_cells, radius_cells + 1)
+            if di * di + dj * dj <= radius_cells * radius_cells
+        ]
 
-        self.last_leave_tick = -1000
-        self.last_wdir = 1
+        self.state = 'PLAN'
+        self.path = []
+        self.n_replans = 0
+        self.explore_ticks_left = 0
+        self.explore_attempts = 0
+        self.last_fail_reason = ''
+        self.stuck_dumped = False
 
-        self.n_contornos = 0
         self.wp_times = []
         self.wp_start_time = None
         self.mission_start_time = None
         self.wait_until = None
 
-        self.timer = self.create_timer(0.1, self.control)
+        self.timer = self.create_timer(CONTROL_PERIOD, self.control)
         self.tick = 0
-        self.get_logger().info('=== Navigator (Bug2 + LoS + missao) iniciado ===')
+        self.get_logger().info('=== Navigator (mapa de ocupacao + wavefront) iniciado ===')
         self.get_logger().info(
             f'Pose inicial: ({self.x0}, {self.y0}) theta={math.degrees(self.theta0):.0f}deg')
         self.get_logger().info('Missao: ' + ' -> '.join(w.name for w in self.mission))
+        self.get_logger().info(
+            f'Grade: {self.grid_n}x{self.grid_n} celulas de {self.GRID_RES}m, '
+            f'raio de inflacao {radius_cells} celulas')
 
     def _load_params(self):
         DBL = rclpy.Parameter.Type.DOUBLE
         STRARR = rclpy.Parameter.Type.STRING_ARRAY
+        INT = rclpy.Parameter.Type.INTEGER
 
         self.declare_parameter('pose0.x', DBL)
         self.declare_parameter('pose0.y', DBL)
@@ -103,23 +123,45 @@ class Navigator(Node):
                 True))
             self.mission.append(home)
 
-        self.declare_parameter('bug2.d_obs', DBL)
-        self.declare_parameter('bug2.wall_dist', DBL)
-        self.declare_parameter('bug2.mline_tol', DBL)
-        self.declare_parameter('bug2.lin', DBL)
-        self.declare_parameter('bug2.ang', DBL)
-        self.D_OBS = self.get_parameter('bug2.d_obs').value
-        self.WALL_DIST = self.get_parameter('bug2.wall_dist').value
-        self.MLINE_TOL = self.get_parameter('bug2.mline_tol').value
-        self.LIN = self.get_parameter('bug2.lin').value
-        self.ANG = self.get_parameter('bug2.ang').value
+        self.declare_parameter('plan.grid_res', DBL)
+        self.declare_parameter('plan.world_min', DBL)
+        self.declare_parameter('plan.world_max', DBL)
+        self.declare_parameter('plan.robot_radius', DBL)
+        self.declare_parameter('plan.safety_margin', DBL)
+        self.declare_parameter('plan.replan_period_s', DBL)
+        self.declare_parameter('plan.lookahead', DBL)
+        self.declare_parameter('plan.k_ang', DBL)
+        self.declare_parameter('plan.v_max', DBL)
+        self.declare_parameter('plan.w_max', DBL)
+        self.declare_parameter('plan.turn_in_place_angle', DBL)
+        self.declare_parameter('plan.explore_time_s', DBL)
+        self.declare_parameter('plan.max_explore_attempts', INT)
+        self.GRID_RES = self.get_parameter('plan.grid_res').value
+        self.WORLD_MIN = self.get_parameter('plan.world_min').value
+        self.WORLD_MAX = self.get_parameter('plan.world_max').value
+        self.ROBOT_RADIUS = self.get_parameter('plan.robot_radius').value
+        self.SAFETY_MARGIN = self.get_parameter('plan.safety_margin').value
+        self.REPLAN_TICKS = max(1, int(round(
+            self.get_parameter('plan.replan_period_s').value / CONTROL_PERIOD)))
+        self.LOOKAHEAD = self.get_parameter('plan.lookahead').value
+        self.K_ANG = self.get_parameter('plan.k_ang').value
+        self.V_MAX = self.get_parameter('plan.v_max').value
+        self.W_MAX = self.get_parameter('plan.w_max').value
+        self.TURN_IN_PLACE_ANGLE = self.get_parameter('plan.turn_in_place_angle').value
+        self.EXPLORE_TIME = self.get_parameter('plan.explore_time_s').value
+        self.MAX_EXPLORE_ATTEMPTS = self.get_parameter('plan.max_explore_attempts').value
+
+        self.declare_parameter('safety.frontal_deg', DBL)
+        self.declare_parameter('safety.min_dist', DBL)
+        self.SAFETY_FRONTAL_DEG = self.get_parameter('safety.frontal_deg').value
+        self.SAFETY_MIN_DIST = self.get_parameter('safety.min_dist').value
 
         self.declare_parameter('approach.window_dist', DBL)
         self.declare_parameter('approach.max_speed', DBL)
         self.declare_parameter('approach.safety_fm', DBL)
         self.approach_window = self.get_parameter('approach.window_dist').value
         self.approach_max_speed = self.get_parameter('approach.max_speed').value
-        self.safety_fm = self.get_parameter('approach.safety_fm').value
+        self.approach_safety_fm = self.get_parameter('approach.safety_fm').value
 
         self.declare_parameter('wait_time', DBL)
         self.wait_time = self.get_parameter('wait_time').value
@@ -164,7 +206,29 @@ class Navigator(Node):
         self.ranges = list(msg.ranges)
         self.amin = msg.angle_min
         self.ainc = msg.angle_increment
+        self.range_max = msg.range_max
+        self.range_min = msg.range_min
         self.lok = True
+        self._update_occupancy()
+
+    def _update_occupancy(self):
+        # Para cada raio com retorno valido, projeta o ponto de impacto no mundo
+        # (usando a pose atual do odom) e marca a celula como ocupada. inf/0/nan
+        # (fora de alcance ou zona cega abaixo de range_min) sao descartados aqui
+        # -- nao viram "livre" nem "ocupado", so nao contribuem com informacao.
+        for k, r in enumerate(self.ranges):
+            if math.isnan(r) or math.isinf(r):
+                continue
+            if not (self.range_min < r < self.range_max):
+                continue
+            wang = self.rt + self.amin + k * self.ainc
+            px = self.rx + r * math.cos(wang)
+            py = self.ry + r * math.sin(wang)
+            cell = self._world_to_cell(px, py)
+            if cell is None:
+                continue
+            i, j = cell
+            self.occ[i * self.grid_n + j] = 1
 
     @staticmethod
     def _na(a):
@@ -177,18 +241,28 @@ class Navigator(Node):
         raw = (angle_rad - self.amin) / self.ainc
         return int(round(raw)) % n
 
-    def _sector_min(self, deg_min, deg_max):
+    def _sector_clear(self, deg_min, deg_max):
+        # Indexacao circular ja validada -- nao mexer. NaN/inf/fora de
+        # range_min-range_max contam como BLOQUEADO (zona cega do laser), nunca
+        # como livre -- e a ultima linha de defesa contra colisao na zona cega.
         if not self.ranges:
-            return 999.0
+            return 0.0
         i1 = self._angle_to_idx(math.radians(deg_min))
         i2 = self._angle_to_idx(math.radians(deg_max))
-        if i1 <= i2:
-            sec = self.ranges[i1:i2 + 1]
-        else:
-            sec = self.ranges[i1:] + self.ranges[:i2 + 1]
-        v = [r for r in sec if 0.05 < r < 30.0
-             and not math.isinf(r) and not math.isnan(r)]
-        return min(v) if v else 999.0
+        sec = self.ranges[i1:i2 + 1] if i1 <= i2 else self.ranges[i1:] + self.ranges[:i2 + 1]
+        vals = []
+        for r in sec:
+            if math.isnan(r) or (not math.isinf(r) and r < self.range_min):
+                # NaN ou leitura finita abaixo de range_min: zona cega, obstaculo
+                # perto demais pra medir -- bloqueado.
+                vals.append(0.0)
+            elif math.isinf(r) or r > self.range_max:
+                # Nada detectado dentro do alcance (ex: olhando por um corredor
+                # aberto) -- livre, nao bloqueado.
+                vals.append(self.range_max)
+            else:
+                vals.append(r)
+        return min(vals) if vals else 0.0
 
     def _goal_info(self):
         wp = self.mission[self.widx]
@@ -198,20 +272,164 @@ class Navigator(Node):
         gr = self._na(ga - self.rt)
         return d, ga, gr
 
-    def _on_mline(self, wp):
-        sx, sy = self.ml_sx, self.ml_sy
-        ll = math.hypot(wp.x - sx, wp.y - sy)
-        if ll < 0.01:
-            return True
-        d = abs((wp.y - sy) * (self.rx - sx) - (wp.x - sx) * (self.ry - sy)) / ll
-        return d < self.MLINE_TOL
+    # ------------------------------------------------------------------ grade
 
-    def _line_of_sight_to_goal(self, ga_r, dist):
-        center_deg = math.degrees(ga_r)
-        if abs(center_deg) > 120:
+    def _world_to_cell(self, x, y):
+        if not (self.WORLD_MIN <= x <= self.WORLD_MAX and self.WORLD_MIN <= y <= self.WORLD_MAX):
+            return None
+        i = min(max(int((x - self.WORLD_MIN) / self.GRID_RES), 0), self.grid_n - 1)
+        j = min(max(int((y - self.WORLD_MIN) / self.GRID_RES), 0), self.grid_n - 1)
+        return i, j
+
+    def _cell_to_world(self, i, j):
+        x = self.WORLD_MIN + (i + 0.5) * self.GRID_RES
+        y = self.WORLD_MIN + (j + 0.5) * self.GRID_RES
+        return x, y
+
+    def _inflate_grid(self):
+        n = self.grid_n
+        inflated = bytearray(n * n)
+        for idx in range(n * n):
+            if not self.occ[idx]:
+                continue
+            i, j = idx // n, idx % n
+            for di, dj in self._inflate_offsets:
+                ni, nj = i + di, j + dj
+                if 0 <= ni < n and 0 <= nj < n:
+                    inflated[ni * n + nj] = 1
+        self.inflated = inflated
+
+    def _wavefront(self, goal_cell):
+        # BFS a partir do objetivo sobre celulas livres (nao infladas), gerando
+        # o campo de distancias (mundo classico do "wavefront planner").
+        n = self.grid_n
+        gi, gj = goal_cell
+        if self.inflated[gi * n + gj]:
+            return None
+        dist = [-1] * (n * n)
+        dist[gi * n + gj] = 0
+        dq = deque([(gi, gj)])
+        while dq:
+            i, j = dq.popleft()
+            d = dist[i * n + j]
+            for di, dj in NEI8:
+                ni, nj = i + di, j + dj
+                if 0 <= ni < n and 0 <= nj < n:
+                    idx = ni * n + nj
+                    if dist[idx] == -1 and not self.inflated[idx]:
+                        dist[idx] = d + 1
+                        dq.append((ni, nj))
+        return dist
+
+    def _nearest_with_dist(self, cell, dist_field, max_radius=10):
+        n = self.grid_n
+        i0, j0 = cell
+        if dist_field[i0 * n + j0] != -1:
+            return cell
+        for r in range(1, max_radius + 1):
+            best, best_d = None, None
+            for di in range(-r, r + 1):
+                for dj in range(-r, r + 1):
+                    if max(abs(di), abs(dj)) != r:
+                        continue
+                    ni, nj = i0 + di, j0 + dj
+                    if 0 <= ni < n and 0 <= nj < n:
+                        dv = dist_field[ni * n + nj]
+                        if dv != -1 and (best_d is None or dv < best_d):
+                            best_d, best = dv, (ni, nj)
+            if best is not None:
+                return best
+        return None
+
+    def _extract_path(self, dist_field, start_cell):
+        n = self.grid_n
+        start_cell = self._nearest_with_dist(start_cell, dist_field)
+        if start_cell is None:
+            return None
+        i, j = start_cell
+        path = [(i, j)]
+        cur_d = dist_field[i * n + j]
+        guard = 0
+        while cur_d > 0 and guard < n * n:
+            guard += 1
+            best, best_d = None, cur_d
+            for di, dj in NEI8:
+                ni, nj = i + di, j + dj
+                if 0 <= ni < n and 0 <= nj < n:
+                    dv = dist_field[ni * n + nj]
+                    if dv != -1 and dv < best_d:
+                        best_d, best = dv, (ni, nj)
+            if best is None:
+                break
+            i, j = best
+            path.append((i, j))
+            cur_d = best_d
+        return path
+
+    def _find_approach_cell(self, tx, ty, tol):
+        # O alvo e um cilindro fisico: a celula do seu centro fica dentro da
+        # regiao inflada e e inalcancavel. Procura a celula livre mais proxima
+        # do robo num anel a ~tol do centro, expandindo o raio se preciso.
+        n_angles = 36
+        for k in range(12):
+            r = tol + k * self.GRID_RES
+            candidates = []
+            for a in range(n_angles):
+                ang = 2.0 * math.pi * a / n_angles
+                px = tx + r * math.cos(ang)
+                py = ty + r * math.sin(ang)
+                cell = self._world_to_cell(px, py)
+                if cell is None:
+                    continue
+                i, j = cell
+                if not self.inflated[i * self.grid_n + j]:
+                    candidates.append((math.hypot(px - self.rx, py - self.ry), (i, j)))
+            if candidates:
+                candidates.sort(key=lambda c: c[0])
+                return candidates[0][1]
+        return None
+
+    def _goal_cell(self, wp):
+        if wp.is_target:
+            return self._find_approach_cell(wp.x, wp.y, wp.tol)
+        cell = self._world_to_cell(wp.x, wp.y)
+        if cell is None:
+            return None
+        i, j = cell
+        if self.inflated[i * self.grid_n + j]:
+            return self._find_approach_cell(wp.x, wp.y, 0.05)
+        return cell
+
+    def _replan(self, wp):
+        self._inflate_grid()
+        goal_cell = self._goal_cell(wp)
+        if goal_cell is None:
+            self.path = []
+            self.last_fail_reason = ('objetivo sem celula livre por perto '
+                                      '(anel de aproximacao todo bloqueado/inflado)')
             return False
-        sec_min = self._sector_min(center_deg - 20, center_deg + 20)
-        return sec_min > min(dist - 0.2, 3.0)
+        dist_field = self._wavefront(goal_cell)
+        if dist_field is None:
+            self.path = []
+            self.last_fail_reason = 'celula do objetivo caiu dentro da regiao inflada'
+            return False
+        start_cell = self._world_to_cell(self.rx, self.ry)
+        if start_cell is None:
+            self.path = []
+            self.last_fail_reason = 'robo fora dos limites da grade'
+            return False
+        path_cells = self._extract_path(dist_field, start_cell)
+        if not path_cells:
+            self.path = []
+            self.last_fail_reason = ('sem conexao livre entre o robo e o objetivo no mapa '
+                                      'conhecido ate agora (bloqueio real ou falso-positivo)')
+            return False
+        self.path = [self._cell_to_world(i, j) for i, j in path_cells]
+        self.n_replans += 1
+        self.explore_attempts = 0
+        return True
+
+    # --------------------------------------------------------------- controle
 
     def control(self):
         if not self.lok:
@@ -222,11 +440,7 @@ class Navigator(Node):
             self.wp_start_time = self.get_clock().now()
             self.mission_start_time = self.wp_start_time
 
-        fm     = self._sector_min(-25,   25)
-        fleft  = self._sector_min( 15,   60)
-        fright = self._sector_min(-60,  -15)
-        sleft  = self._sector_min( 60,  120)
-        sright = self._sector_min(-120, -60)
+        front_clear = self._sector_clear(-self.SAFETY_FRONTAL_DEG, self.SAFETY_FRONTAL_DEG)
 
         tw = Twist()
         wp_name = 'DONE'
@@ -249,27 +463,47 @@ class Navigator(Node):
             else:
                 in_window = wp.is_target and dist < self.approach_window
                 if in_window:
-                    tw = self._approach_final(wp, ga_r, fm, sleft, sright)
+                    if self.state != 'APPROACH':
+                        self.state = 'APPROACH'
+                        self.get_logger().info(
+                            f'Janela final ({self.approach_window:.2f}m) perto de {wp.name}: '
+                            f'aproximacao direta')
+                    tw = self._approach_step(ga_r)
                 else:
-                    tw = self._bug2_step(wp, dist, ga_r, fm, fleft, fright, sleft, sright)
+                    if self.state == 'APPROACH':
+                        self.state = 'PLAN'
+                        self.path = []
+                    if self.explore_ticks_left > 0:
+                        tw = self._explore_step()
+                    else:
+                        need_replan = self.state != 'FOLLOW' or self.tick % self.REPLAN_TICKS == 0
+                        if need_replan:
+                            if self._replan(wp):
+                                self.state = 'FOLLOW'
+                                tw = self._follow_path(front_clear)
+                            else:
+                                self.state = 'PLAN'
+                                self._start_explore()
+                                tw = self._explore_step()
+                        else:
+                            tw = self._follow_path(front_clear)
 
                 if self.tick % 30 == 0:
-                    ml = 'ML' if self._on_mline(wp) else '--'
                     self.get_logger().info(
                         f'[{self.state}] alvo={wp.name} ({self.rx:.1f},{self.ry:.1f}) '
-                        f'd={dist:.1f}m {ml} fm={fm:.2f}')
+                        f'd={dist:.1f}m front={front_clear:.2f}m path={len(self.path)}')
 
         self.cmd_pub.publish(tw)
-        self._log_row(wp_name, dist, fm, fleft, fright, sleft, sright, tw)
+        self._log_row(wp_name, dist, front_clear, len(self.path), tw)
 
-    def _log_row(self, wp_name, dist, fm, fleft, fright, sleft, sright, tw):
+    def _log_row(self, wp_name, dist, front_clear, path_len, tw):
         if not self.log_csv:
             return
         t = (self.get_clock().now() - self.mission_start_time).nanoseconds / 1e9
         self.csv_writer.writerow([
             f'{t:.3f}', f'{self.rx:.4f}', f'{self.ry:.4f}', f'{self.rt:.4f}',
             self.state, wp_name, f'{dist:.4f}',
-            f'{fm:.3f}', f'{fleft:.3f}', f'{fright:.3f}', f'{sleft:.3f}', f'{sright:.3f}',
+            f'{front_clear:.3f}', f'{path_len}',
             f'{tw.linear.x:.4f}', f'{tw.angular.z:.4f}'])
         self.csv_file.flush()
 
@@ -289,9 +523,11 @@ class Navigator(Node):
             self.state = 'DONE'
             self._log_summary()
             return
-        self.state = 'GO_TO_GOAL'
-        self.ml_sx, self.ml_sy = self.rx, self.ry
-        self.fticks = 0
+        self.state = 'PLAN'
+        self.path = []
+        self.explore_ticks_left = 0
+        self.explore_attempts = 0
+        self.stuck_dumped = False
         self.wp_start_time = self.get_clock().now()
 
     def _log_summary(self):
@@ -300,167 +536,95 @@ class Navigator(Node):
         self.get_logger().info(f'Tempo total: {total:.1f}s')
         for name, t in self.wp_times:
             self.get_logger().info(f'  {name}: {t:.1f}s')
-        self.get_logger().info(f'Contornos executados: {self.n_contornos}')
+        self.get_logger().info(f'Replanejamentos executados: {self.n_replans}')
+        self._dump_occ_grid()
 
-    def _approach_final(self, wp, ga_r, fm, sleft, sright):
-        if self.state == 'WALL_FOLLOW':
-            self.state = 'GO_TO_GOAL'
-            self.last_leave_tick = self.tick
-            self.last_wdir = self.wdir
-            self.get_logger().info(
-                f'Janela final ({self.approach_window:.2f}m) perto de {wp.name}: '
-                f'saindo de WALL_FOLLOW')
+    def _dump_occ_grid(self, suffix=''):
+        if not self.log_csv or self.csv_file is None:
+            return
+        self._inflate_grid()
+        n = self.grid_n
+        path = self.csv_file.name.rsplit('.', 1)[0] + suffix + '_occ.txt'
+        with open(path, 'w') as f:
+            f.write(f'{self.GRID_RES},{self.WORLD_MIN},{self.WORLD_MIN},'
+                    f'{self.WORLD_MAX},{self.WORLD_MAX},{n}\n')
+            for i in range(n):
+                f.write(''.join('1' if self.inflated[i * n + j] else '0'
+                                 for j in range(n)) + '\n')
+        self.get_logger().info(f'Grade de ocupacao salva em {path}')
 
-        if fm < self.safety_fm:
-            tw = Twist()
-            tw.angular.z = self.ANG if sleft >= sright else -self.ANG
+    # ---------------------------------------------------------- comportamentos
+
+    def _approach_step(self, ga_r):
+        # Dentro da janela final: desvio desligado, so aproximacao direta e lenta,
+        # com parada de seguranca se algo aparecer perto demais.
+        tw = Twist()
+        fm = self._sector_clear(-25, 25)
+        if fm < self.approach_safety_fm:
+            sleft = self._sector_clear(60, 120)
+            sright = self._sector_clear(-120, -60)
+            tw.angular.z = self.W_MAX if sleft >= sright else -self.W_MAX
             self.get_logger().warn(
-                f'SEGURANCA fm={fm:.2f}m < {self.safety_fm:.2f}m perto de {wp.name} '
-                f'-- girando no lugar')
+                f'SEGURANCA fm={fm:.2f}m < {self.approach_safety_fm:.2f}m na aproximacao '
+                f'final -- girando no lugar')
             return tw
 
-        tw = self._drive_to_goal(ga_r, fm)
-        tw.linear.x = min(tw.linear.x, self.approach_max_speed)
-        return tw
-
-    def _bug2_step(self, wp, dist, ga_r, fm, fleft, fright, sleft, sright):
-        tw = Twist()
-
-        if self.state == 'GO_TO_GOAL':
-            if fm < self.D_OBS:
-                self.hit_dist = dist
-                self.hit_x = self.rx
-                self.hit_y = self.ry
-                self.fticks = 0
-                self.n_contornos += 1
-
-                if self.tick - self.last_leave_tick < 30:
-                    self.wdir = self.last_wdir
-                    razao = 'histerese'
-                else:
-                    left_space  = min(sleft,  fleft  * 1.5)
-                    right_space = min(sright, fright * 1.5)
-                    align_bonus = 1.5 * ga_r
-                    left_score  = left_space  + align_bonus
-                    right_score = right_space - align_bonus
-                    self.wdir = 1 if left_score > right_score else -1
-                    razao = f'L={left_score:.2f} R={right_score:.2f}'
-
-                self.state = 'WALL_FOLLOW'
-                side_lbl = 'ESQ' if self.wdir == 1 else 'DIR'
-                self.get_logger().info(
-                    f'HIT ({self.rx:.1f},{self.ry:.1f}) d={dist:.1f}m '
-                    f'-> contorno pela {side_lbl} ({razao})')
-            else:
-                tw = self._drive_to_goal(ga_r, fm)
-
-        elif self.state == 'WALL_FOLLOW':
-            self.fticks += 1
-
-            los = self._line_of_sight_to_goal(ga_r, dist)
-            los_exit = (
-                self.fticks > 15
-                and los
-                and dist < self.hit_dist - 0.2
-            )
-
-            mline_exit = (
-                self.fticks > 25
-                and self._on_mline(wp)
-                and dist < self.hit_dist - 0.3
-                and fm > self.D_OBS
-            )
-
-            stuck = (
-                self.fticks > 250
-                and dist > self.hit_dist + 1.0
-            )
-
-            back_to_hit = (
-                self.fticks > 150
-                and math.hypot(self.rx - self.hit_x, self.ry - self.hit_y) < 0.8
-            )
-
-            if los_exit:
-                self.state = 'GO_TO_GOAL'
-                self.ml_sx, self.ml_sy = self.rx, self.ry
-                self.last_leave_tick = self.tick
-                self.last_wdir = self.wdir
-                self.get_logger().info(
-                    f'LOS_EXIT ({self.rx:.1f},{self.ry:.1f}) d={dist:.1f}m')
-            elif mline_exit:
-                self.state = 'GO_TO_GOAL'
-                self.ml_sx, self.ml_sy = self.rx, self.ry
-                self.last_leave_tick = self.tick
-                self.last_wdir = self.wdir
-                self.get_logger().info(
-                    f'LEAVE ({self.rx:.1f},{self.ry:.1f}) d={dist:.1f}m hit={self.hit_dist:.1f}m')
-            elif stuck:
-                self.wdir *= -1
-                self.fticks = 0
-                self.hit_dist = dist
-                self.hit_x = self.rx
-                self.hit_y = self.ry
-                side_lbl = 'ESQ' if self.wdir == 1 else 'DIR'
-                self.get_logger().warn(
-                    f'STUCK ({self.rx:.1f},{self.ry:.1f}) d={dist:.1f}m '
-                    f'-- invertendo para {side_lbl}')
-                tw = self._follow_wall(fm, fleft, fright, sleft, sright)
-            elif back_to_hit:
-                self.wdir *= -1
-                self.fticks = 0
-                self.hit_dist = dist
-                side_lbl = 'ESQ' if self.wdir == 1 else 'DIR'
-                self.get_logger().warn(
-                    f'LOOP fechado -- invertendo para {side_lbl}')
-                tw = self._follow_wall(fm, fleft, fright, sleft, sright)
-            else:
-                tw = self._follow_wall(fm, fleft, fright, sleft, sright)
-
-        return tw
-
-    def _drive_to_goal(self, ga_r, fm):
-        tw = Twist()
-        speed_factor = max(0.3, min(1.0, fm / (2 * self.D_OBS)))
-
         if abs(ga_r) > math.radians(45):
-            tw.linear.x = 0.0
-            tw.angular.z = self.ANG * (1.0 if ga_r > 0 else -1.0)
+            tw.angular.z = self.W_MAX * (1.0 if ga_r > 0 else -1.0)
         elif abs(ga_r) > math.radians(15):
-            tw.linear.x = self.LIN * 0.4 * speed_factor
+            tw.linear.x = self.approach_max_speed * 0.5
             tw.angular.z = ga_r * 2.0
         else:
-            tw.linear.x = self.LIN * speed_factor
+            tw.linear.x = self.approach_max_speed
             tw.angular.z = ga_r * 1.5
         return tw
 
-    def _follow_wall(self, fm, fleft, fright, sleft, sright):
+    def _lookahead_point(self):
+        if not self.path:
+            return None
+        for px, py in self.path:
+            if math.hypot(px - self.rx, py - self.ry) >= self.LOOKAHEAD:
+                return px, py
+        return self.path[-1]
+
+    def _follow_path(self, front_clear):
+        # Pure-pursuit simples sobre o caminho do wavefront.
         tw = Twist()
-        turn = float(self.wdir)
-
-        if self.wdir == 1:
-            side_dist  = sright
-            front_diag = fright
-        else:
-            side_dist  = sleft
-            front_diag = fleft
-
-        if fm < 0.30:
+        target = self._lookahead_point()
+        if target is None:
+            return tw
+        tx, ty = target
+        bearing = self._na(math.atan2(ty - self.ry, tx - self.rx) - self.rt)
+        tw.angular.z = max(-self.W_MAX, min(self.W_MAX, self.K_ANG * bearing))
+        tw.linear.x = self.V_MAX
+        if abs(bearing) > self.TURN_IN_PLACE_ANGLE:
             tw.linear.x = 0.0
-            tw.angular.z = self.ANG * turn
-        elif fm < self.D_OBS or front_diag < self.D_OBS * 0.8:
-            tw.linear.x = 0.08
-            tw.angular.z = self.ANG * 0.65 * turn
-        elif side_dist < 0.30:
-            tw.linear.x = self.LIN * 0.3
-            tw.angular.z = self.ANG * 0.5 * turn
-        elif side_dist > self.WALL_DIST + 0.6:
-            tw.linear.x = self.LIN * 0.4
-            tw.angular.z = self.ANG * 0.4 * (-turn)
+
+        # Trava dura, independente do plano: se a frente (+-frontal_deg) esta
+        # bloqueada (incluindo zona cega abaixo de range_min), nao avanca de
+        # jeito nenhum -- ultima linha de defesa contra colisao.
+        if front_clear < self.SAFETY_MIN_DIST:
+            tw.linear.x = 0.0
+        return tw
+
+    def _start_explore(self):
+        self.explore_attempts += 1
+        self.explore_ticks_left = max(1, int(round(self.EXPLORE_TIME / CONTROL_PERIOD)))
+        msg = (f'PLAN ({self.rx:.1f},{self.ry:.1f}) -- {self.last_fail_reason} '
+               f'(tentativa {self.explore_attempts}), girando pra explorar')
+        if self.explore_attempts > self.MAX_EXPLORE_ATTEMPTS:
+            self.get_logger().error(msg + ' [acima do limite de tentativas]')
+            if not self.stuck_dumped:
+                self.stuck_dumped = True
+                self._dump_occ_grid(suffix='_stuck')
         else:
-            err = self.WALL_DIST - side_dist
-            tw.linear.x = self.LIN * 0.6
-            tw.angular.z = err * 1.5 * turn
+            self.get_logger().warn(msg)
+
+    def _explore_step(self):
+        # Deterministico: sempre gira no mesmo sentido, sem manobra aleatoria.
+        self.explore_ticks_left -= 1
+        tw = Twist()
+        tw.angular.z = self.W_MAX
         return tw
 
 

@@ -1,1 +1,0 @@
-/ros_ws/build/robot_navigation/launch/mission.launch.py
