@@ -1,8 +1,12 @@
 # Relatório Técnico — Trabalho 2: Robô Navegador
 
 **Disciplina:** Tópicos em Sistemas Robóticos / Introdução à Robótica Inteligente — 2026
-**Aluna:** Aline [preencher]
-**Robô:** TurtleBot3 Burger · **Ambiente:** ROS 2 Humble + Gazebo Classic
+**Aluna:** Aline Timm
+**Link para o vídeo no youtube:** https://youtu.be/z6f-VYwISNY
+**Robô:** TurtleBot3 Burger ·
+**Ambiente:** ROS 2 Humble + Gazebo Classic
+
+
 
 ---
 

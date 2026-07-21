@@ -9,3 +9,8 @@ ros_ws/logs/
 # python
 __pycache__/
 *.pyc
+
+# recorded videos (large binaries)
+*.mp4
+*.mkv
+ros_ws/videos/

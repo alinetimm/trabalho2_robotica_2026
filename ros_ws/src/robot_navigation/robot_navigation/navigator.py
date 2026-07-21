@@ -48,9 +48,6 @@ class Navigator(Node):
         self.range_min = 0.12
         self.lok = False
 
-        # Grade de ocupacao: comeca tudo livre/desconhecido (0). Marcada so por
-        # impactos validos do laser -- acumulativa, nunca desmarca (suficiente
-        # para uma arena estatica). A grade inflada e recalculada a cada replan.
         self.grid_n = int(round((self.WORLD_MAX - self.WORLD_MIN) / self.GRID_RES))
         self.occ = bytearray(self.grid_n * self.grid_n)
         self.inflated = bytearray(self.grid_n * self.grid_n)
@@ -212,10 +209,6 @@ class Navigator(Node):
         self._update_occupancy()
 
     def _update_occupancy(self):
-        # Para cada raio com retorno valido, projeta o ponto de impacto no mundo
-        # (usando a pose atual do odom) e marca a celula como ocupada. inf/0/nan
-        # (fora de alcance ou zona cega abaixo de range_min) sao descartados aqui
-        # -- nao viram "livre" nem "ocupado", so nao contribuem com informacao.
         for k, r in enumerate(self.ranges):
             if math.isnan(r) or math.isinf(r):
                 continue
@@ -242,9 +235,6 @@ class Navigator(Node):
         return int(round(raw)) % n
 
     def _sector_clear(self, deg_min, deg_max):
-        # Indexacao circular ja validada -- nao mexer. NaN/inf/fora de
-        # range_min-range_max contam como BLOQUEADO (zona cega do laser), nunca
-        # como livre -- e a ultima linha de defesa contra colisao na zona cega.
         if not self.ranges:
             return 0.0
         i1 = self._angle_to_idx(math.radians(deg_min))
@@ -253,12 +243,10 @@ class Navigator(Node):
         vals = []
         for r in sec:
             if math.isnan(r) or (not math.isinf(r) and r < self.range_min):
-                # NaN ou leitura finita abaixo de range_min: zona cega, obstaculo
-                # perto demais pra medir -- bloqueado.
+
                 vals.append(0.0)
             elif math.isinf(r) or r > self.range_max:
-                # Nada detectado dentro do alcance (ex: olhando por um corredor
-                # aberto) -- livre, nao bloqueado.
+
                 vals.append(self.range_max)
             else:
                 vals.append(r)
@@ -272,7 +260,7 @@ class Navigator(Node):
         gr = self._na(ga - self.rt)
         return d, ga, gr
 
-    # ------------------------------------------------------------------ grade
+
 
     def _world_to_cell(self, x, y):
         if not (self.WORLD_MIN <= x <= self.WORLD_MAX and self.WORLD_MIN <= y <= self.WORLD_MAX):
@@ -300,8 +288,6 @@ class Navigator(Node):
         self.inflated = inflated
 
     def _wavefront(self, goal_cell):
-        # BFS a partir do objetivo sobre celulas livres (nao infladas), gerando
-        # o campo de distancias (mundo classico do "wavefront planner").
         n = self.grid_n
         gi, gj = goal_cell
         if self.inflated[gi * n + gj]:
@@ -367,9 +353,6 @@ class Navigator(Node):
         return path
 
     def _find_approach_cell(self, tx, ty, tol):
-        # O alvo e um cilindro fisico: a celula do seu centro fica dentro da
-        # regiao inflada e e inalcancavel. Procura a celula livre mais proxima
-        # do robo num anel a ~tol do centro, expandindo o raio se preciso.
         n_angles = 36
         for k in range(12):
             r = tol + k * self.GRID_RES
@@ -429,7 +412,7 @@ class Navigator(Node):
         self.explore_attempts = 0
         return True
 
-    # --------------------------------------------------------------- controle
+
 
     def control(self):
         if not self.lok:
@@ -553,11 +536,9 @@ class Navigator(Node):
                                  for j in range(n)) + '\n')
         self.get_logger().info(f'Grade de ocupacao salva em {path}')
 
-    # ---------------------------------------------------------- comportamentos
 
     def _approach_step(self, ga_r):
-        # Dentro da janela final: desvio desligado, so aproximacao direta e lenta,
-        # com parada de seguranca se algo aparecer perto demais.
+
         tw = Twist()
         fm = self._sector_clear(-25, 25)
         if fm < self.approach_safety_fm:
@@ -600,9 +581,6 @@ class Navigator(Node):
         if abs(bearing) > self.TURN_IN_PLACE_ANGLE:
             tw.linear.x = 0.0
 
-        # Trava dura, independente do plano: se a frente (+-frontal_deg) esta
-        # bloqueada (incluindo zona cega abaixo de range_min), nao avanca de
-        # jeito nenhum -- ultima linha de defesa contra colisao.
         if front_clear < self.SAFETY_MIN_DIST:
             tw.linear.x = 0.0
         return tw
@@ -621,7 +599,6 @@ class Navigator(Node):
             self.get_logger().warn(msg)
 
     def _explore_step(self):
-        # Deterministico: sempre gira no mesmo sentido, sem manobra aleatoria.
         self.explore_ticks_left -= 1
         tw = Twist()
         tw.angular.z = self.W_MAX
